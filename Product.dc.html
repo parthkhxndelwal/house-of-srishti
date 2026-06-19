@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#FAF5EF}
+  ::selection{background:#6E2433;color:#FAF5EF}
+  .hs-rev{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.16,.7,.3,1),transform 1s cubic-bezier(.16,.7,.3,1)}
+  .hs-rev.in{opacity:1;transform:none}
+  @media(max-width:880px){.hs-deskonly{display:none!important}}
+  @media(min-width:881px){.hs-mobonly{display:none!important}}
+</style>
+</helmet>
+
+<div style="font-family:'Jost',sans-serif;color:#221C1A;background:#FAF5EF;overflow-x:clip">
+
+  <div style="background:#4A1722;color:#E7C9B4;text-align:center;font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;padding:8px 16px">Made to order · Crafted in 2–3 weeks · Worldwide shipping</div>
+
+  <header style="position:sticky;top:0;z-index:60;background:rgba(250,245,239,.97);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(34,28,26,.08);padding:15px clamp(20px,5vw,68px)">
+    <div style="max-width:1360px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px">
+      <nav class="hs-deskonly" style="display:flex;gap:32px;flex:1;font-size:12px;letter-spacing:.18em;text-transform:uppercase">
+        <a href="Collections.dc.html" style="color:#3A302B;text-decoration:none" style-hover="color:#6E2433">Collections</a>
+        <a href="House of Srishti.dc.html#story" style="color:#3A302B;text-decoration:none" style-hover="color:#6E2433">Our Story</a>
+        <a href="House of Srishti.dc.html#reviews" style="color:#3A302B;text-decoration:none" style-hover="color:#6E2433">Reviews</a>
+      </nav>
+      <a href="House of Srishti.dc.html" style="text-decoration:none;color:#221C1A;text-align:center;line-height:1;flex-shrink:0">
+        <div style="font-size:10.5px;letter-spacing:.46em;text-transform:uppercase;color:#C39A5E;font-weight:500;padding-left:.46em">House of</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;letter-spacing:.02em;margin-top:2px">Srishti</div>
+      </a>
+      <div class="hs-deskonly" style="display:flex;gap:30px;flex:1;justify-content:flex-end;align-items:center;font-size:12px;letter-spacing:.18em;text-transform:uppercase">
+        <a href="House of Srishti.dc.html#contact" style="color:#3A302B;text-decoration:none" style-hover="color:#6E2433">Contact</a>
+        <a href="{{ waLink }}" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#6E2433;color:#FAF5EF;text-decoration:none;padding:11px 22px;border-radius:40px;font-size:11px;letter-spacing:.16em" style-hover="background:#4A1722">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.523 5.256l-.999 3.648 3.965-1.003zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+      <button onClick="{{ toggleMenu }}" class="hs-mobonly" aria-label="Menu" style="background:none;border:none;cursor:pointer;padding:6px;display:flex;flex-direction:column;gap:5px">
+        <span style="width:26px;height:1.5px;background:#221C1A;display:block"></span>
+        <span style="width:26px;height:1.5px;background:#221C1A;display:block"></span>
+        <span style="width:18px;height:1.5px;background:#221C1A;display:block"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- mobile menu -->
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:80;background:#FAF5EF;color:#221C1A;display:flex;flex-direction:column;padding:26px clamp(20px,5vw,68px)">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:600">Srishti</div>
+        <button onClick="{{ toggleMenu }}" style="background:none;border:none;font-size:32px;cursor:pointer;color:#221C1A;line-height:1">×</button>
+      </div>
+      <nav style="display:flex;flex-direction:column;gap:4px;margin-top:46px;font-family:'Cormorant Garamond',serif;font-size:34px">
+        <a href="House of Srishti.dc.html" onClick="{{ toggleMenu }}" style="color:#221C1A;text-decoration:none;padding:11px 0;border-bottom:1px solid #E6D8C9">Home</a>
+        <a href="Collections.dc.html" onClick="{{ toggleMenu }}" style="color:#221C1A;text-decoration:none;padding:11px 0;border-bottom:1px solid #E6D8C9">Collections</a>
+        <a href="House of Srishti.dc.html#story" onClick="{{ toggleMenu }}" style="color:#221C1A;text-decoration:none;padding:11px 0;border-bottom:1px solid #E6D8C9">Our Story</a>
+        <a href="House of Srishti.dc.html#reviews" onClick="{{ toggleMenu }}" style="color:#221C1A;text-decoration:none;padding:11px 0;border-bottom:1px solid #E6D8C9">Reviews</a>
+      </nav>
+      <a href="{{ waLink }}" target="_blank" style="margin-top:auto;text-align:center;background:#6E2433;color:#FAF5EF;text-decoration:none;padding:17px;border-radius:40px;font-size:13px;letter-spacing:.18em;text-transform:uppercase">Enquire on WhatsApp</a>
+    </div>
+  </sc-if>
+
+  <!-- breadcrumb -->
+  <div style="max-width:1360px;margin:0 auto;padding:22px clamp(20px,5vw,68px) 0;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#9C8E84">
+    <a href="House of Srishti.dc.html" style="color:#9C8E84;text-decoration:none" style-hover="color:#6E2433">Home</a> &nbsp;/&nbsp;
+    <a href="Collections.dc.html" style="color:#9C8E84;text-decoration:none" style-hover="color:#6E2433">Collections</a> &nbsp;/&nbsp;
+    <span style="color:#6E2433">Rosewater Silk Saree Set</span>
+  </div>
+
+  <!-- product -->
+  <section style="max-width:1360px;margin:0 auto;padding:clamp(24px,4vw,46px) clamp(20px,5vw,68px) clamp(60px,7vw,90px);display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:clamp(32px,4vw,72px);align-items:start">
+
+    <!-- gallery -->
+    <div style="position:sticky;top:92px;display:flex;flex-direction:column-reverse;gap:14px">
+      <div style="display:flex;gap:12px">
+        <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="4">
+          <button onClick="{{ g.select }}" style="border:1px solid {{ g.border }};padding:0;cursor:pointer;border-radius:4px;overflow:hidden;width:76px;height:96px;flex-shrink:0;background:none">
+            <img src="{{ g.img }}" alt="View" style="width:100%;height:100%;object-fit:cover;display:block;opacity:{{ g.opacity }}">
+          </button>
+        </sc-for>
+      </div>
+      <div style="overflow:hidden;border-radius:5px;aspect-ratio:4/5;background:#F0E6DA">
+        <img src="{{ activeImg }}" alt="Rosewater Silk Saree Set" style="width:100%;height:100%;object-fit:cover;display:block;transition:opacity .4s ease">
+      </div>
+    </div>
+
+    <!-- info -->
+    <div>
+      <div style="font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:#C39A5E;margin-bottom:14px">For Her · Coordinating set available</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,4.6vw,58px);line-height:1.02;margin:0 0 14px">Rosewater Silk Saree Set</h1>
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#221C1A">₹6,900</span>
+        <span style="font-size:13px;color:#9C8E84">mother's piece · child's set from ₹3,400</span>
+      </div>
+      <div style="color:#C39A5E;font-size:14px;letter-spacing:2px;margin-bottom:24px">★★★★★ <span style="color:#9C8E84;letter-spacing:.04em;font-size:13px">&nbsp;48 reviews</span></div>
+
+      <p style="color:#5C534C;font-weight:300;line-height:1.85;font-size:16px;margin:0 0 28px">A blush rosewater saree hand-finished in soft Chanderi silk, with a delicate gota border and a matching pre-stitched option for ease. Pair it with the coordinating <em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#6E2433">Little Blossom</em> lehenga for your daughter — designed to complement, never to copy. Made for festivals, first celebrations and photographs you'll keep forever.</p>
+
+      <!-- size -->
+      <div style="margin-bottom:8px;display:flex;justify-content:space-between;align-items:center">
+        <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#221C1A">Your size — <span style="color:#6E2433">{{ activeSize }}</span></span>
+        <a href="House of Srishti.dc.html#contact" style="font-size:12px;color:#C39A5E;text-decoration:none;border-bottom:1px solid #D8C4B6">Size guide</a>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px">
+        <sc-for list="{{ sizes }}" as="s" hint-placeholder-count="5">
+          <button onClick="{{ s.select }}" style="cursor:pointer;min-width:52px;padding:12px 15px;border-radius:4px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.06em;border:1px solid {{ s.border }};background:{{ s.bg }};color:{{ s.color }};transition:all .25s ease">{{ s.label }}</button>
+        </sc-for>
+      </div>
+      <p style="color:#6B5F58;font-size:13.5px;font-weight:300;margin:0 0 28px;line-height:1.6">Adding the matching child's set? Tell us your little one's age &amp; height on WhatsApp — we'll tailor the fit (0–12 yrs). Custom measurements welcome at no extra cost.</p>
+
+      <!-- CTAs -->
+      <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:30px">
+        <a href="{{ waBuy }}" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;gap:11px;background:#6E2433;color:#FAF5EF;text-decoration:none;padding:18px;border-radius:40px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:500" style-hover="background:#4A1722">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.523 5.256l-.999 3.648 3.965-1.003zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          Enquire to Order on WhatsApp
+        </a>
+        <a href="{{ igLink }}" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:transparent;color:#6E2433;text-decoration:none;padding:16px;border-radius:40px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;border:1px solid #D8C4B6" style-hover="border-color:#6E2433">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>
+          Ask on Instagram
+        </a>
+      </div>
+
+      <!-- trust row -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:22px 0;border-top:1px solid #E6D8C9;border-bottom:1px solid #E6D8C9;margin-bottom:8px">
+        <div style="text-align:center">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:#6E2433;line-height:1">2–3 wks</div>
+          <div style="font-size:11px;letter-spacing:.08em;color:#9C8E84;margin-top:5px">Made to order</div>
+        </div>
+        <div style="text-align:center;border-left:1px solid #E6D8C9;border-right:1px solid #E6D8C9">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:#6E2433;line-height:1">Custom</div>
+          <div style="font-size:11px;letter-spacing:.08em;color:#9C8E84;margin-top:5px">Free sizing</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:#6E2433;line-height:1">Global</div>
+          <div style="font-size:11px;letter-spacing:.08em;color:#9C8E84;margin-top:5px">Shipping</div>
+        </div>
+      </div>
+
+      <!-- accordions -->
+      <div>
+        <sc-for list="{{ details }}" as="d" hint-placeholder-count="4">
+          <div style="border-bottom:1px solid #E6D8C9">
+            <button onClick="{{ d.toggle }}" style="width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 2px;text-align:left">
+              <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#221C1A">{{ d.title }}</span>
+              <span style="font-size:22px;color:#C39A5E;font-family:'Cormorant Garamond',serif;line-height:1">{{ d.sign }}</span>
+            </button>
+            <sc-if value="{{ d.open }}" hint-placeholder-val="{{ false }}">
+              <p style="color:#5C534C;font-weight:300;line-height:1.8;font-size:15px;margin:0;padding:0 2px 22px;white-space:pre-line">{{ d.body }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- complete the look -->
+  <section style="background:#F0E6DA;padding:clamp(60px,8vw,110px) clamp(20px,5vw,68px)">
+    <div style="max-width:1360px;margin:0 auto">
+      <div class="hs-rev" style="text-align:center;margin-bottom:clamp(36px,4vw,56px)">
+        <div style="font-size:11.5px;letter-spacing:.34em;text-transform:uppercase;color:#C39A5E;margin-bottom:14px">Complete the Look</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4.4vw,52px);line-height:1.04;margin:0">Pairs beautifully with</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(16px,2vw,28px)">
+        <sc-for list="{{ related }}" as="p" hint-placeholder-count="4">
+          <a class="hs-rev" href="Product.dc.html" style="text-decoration:none;color:inherit;display:block">
+            <div style="position:relative;overflow:hidden;border-radius:4px;aspect-ratio:4/5;background:#FAF5EF">
+              <img src="{{ p.img }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.7,.3,1)" style-hover="transform:scale(1.07)">
+              <span style="position:absolute;top:13px;left:13px;background:rgba(250,245,239,.93);color:#6E2433;font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:6px 11px;border-radius:30px">{{ p.tag }}</span>
+            </div>
+            <div style="padding:16px 2px 0">
+              <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;margin:0 0 5px;line-height:1.15">{{ p.name }}</h3>
+              <div style="display:flex;align-items:center;justify-content:space-between">
+                <span style="font-size:15px;color:#221C1A">{{ p.price }}</span>
+                <span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#C39A5E">View →</span>
+              </div>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer style="background:#2A1416;color:#C9A893;padding:clamp(56px,7vw,88px) clamp(20px,5vw,68px) 36px">
+    <div style="max-width:1360px;margin:0 auto">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:40px;padding-bottom:46px;border-bottom:1px solid rgba(201,168,147,.2)">
+        <div style="max-width:300px">
+          <a href="House of Srishti.dc.html" style="font-family:'Cormorant Garamond',serif;font-size:31px;color:#FAF5EF;text-decoration:none;display:block;line-height:1">House of Srishti</a>
+          <p style="font-size:13.5px;font-weight:300;line-height:1.7;margin:16px 0 0;color:#A88B7B">Couture for mothers &amp; little ones — handcrafted in India, made to be remembered.</p>
+        </div>
+        <div>
+          <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#E0B583;margin-bottom:18px">Explore</div>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;font-weight:300">
+            <a href="Collections.dc.html" style="color:#C9A893;text-decoration:none" style-hover="color:#FAF5EF">Collections</a>
+            <a href="House of Srishti.dc.html#women" style="color:#C9A893;text-decoration:none" style-hover="color:#FAF5EF">For Her</a>
+            <a href="House of Srishti.dc.html#kids" style="color:#C9A893;text-decoration:none" style-hover="color:#FAF5EF">For Little Ones</a>
+            <a href="House of Srishti.dc.html#story" style="color:#C9A893;text-decoration:none" style-hover="color:#FAF5EF">Our Story</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#E0B583;margin-bottom:18px">Care</div>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;font-weight:300">
+            <a href="House of Srishti.dc.html#contact" style="color:#C9A893;text-decoration:none" style-hover="color:#FAF5EF">Sizing &amp; Fit</a>
+            <a href="House of Srishti.dc.html#contact" style="color:#C9A893;text-decoration:none" style-hover="color:#FAF5EF">Fabric Care</a>
+            <a href="House of Srishti.dc.html#contact" style="color:#C9A893;text-decoration:none" style-hover="color:#FAF5EF">Shipping</a>
+            <a href="House of Srishti.dc.html#contact" style="color:#C9A893;text-decoration:none" style-hover="color:#FAF5EF">Made to Order</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#E0B583;margin-bottom:18px">Connect</div>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;font-weight:300">
+            <a href="{{ waLink }}" target="_blank" style="color:#C9A893;text-decoration:none" style-hover="color:#FAF5EF">WhatsApp</a>
+            <a href="{{ igLink }}" target="_blank" style="color:#C9A893;text-decoration:none" style-hover="color:#FAF5EF">Instagram</a>
+            <span style="color:#A88B7B">hello@houseofsrishti.com</span>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:26px;font-size:12px;color:#806257;letter-spacing:.04em">
+        <span>© 2026 House of Srishti. All rights reserved.</span>
+        <span>Crafted with love in India</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:960},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;919000000000&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;instagramHandle&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;houseofsrishti&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { imgIdx: 0, size: 'M', detail: 0, menuOpen: false };
+
+  px(id, w) { return `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w||900}&dpr=2`; }
+
+  componentDidMount() {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    const scan = () => document.querySelectorAll('.hs-rev:not(.in)').forEach(el => io.observe(el));
+    scan();
+    this._t = setInterval(scan, 500);
+    setTimeout(() => document.querySelectorAll('.hs-rev').forEach(el => el.classList.add('in')), 3500);
+  }
+  componentWillUnmount() { clearInterval(this._t); }
+
+  renderVals() {
+    const num = (this.props.whatsappNumber || '919000000000').replace(/[^0-9]/g, '');
+    const handle = this.props.instagramHandle || 'houseofsrishti';
+    const igLink = `https://instagram.com/${handle}`;
+    const waLink = `https://wa.me/${num}?text=${encodeURIComponent("Hello House of Srishti!")}`;
+
+    // 4 cohesive red/rosewater angle shots + the matching child's piece
+    const galleryIds = [7442282, 19764064, 13650900, 35327475];
+    const activeImg = this.px(galleryIds[this.state.imgIdx], 1000);
+    const gallery = galleryIds.map((id, i) => ({
+      img: this.px(id, 220),
+      select: () => this.setState({ imgIdx: i }),
+      border: this.state.imgIdx === i ? '#6E2433' : '#E0D2C4',
+      opacity: this.state.imgIdx === i ? '1' : '0.7',
+    }));
+
+    const sizeList = ['XS', 'S', 'M', 'L', 'XL'];
+    const sizes = sizeList.map(s => {
+      const on = this.state.size === s;
+      return {
+        label: s, select: () => this.setState({ size: s }),
+        bg: on ? '#6E2433' : 'transparent',
+        color: on ? '#FAF5EF' : '#221C1A',
+        border: on ? '#6E2433' : '#D8C4B6',
+      };
+    });
+
+    const waBuy = `https://wa.me/${num}?text=${encodeURIComponent(`Hello House of Srishti! I'd love to order the Rosewater Silk Saree Set (my size ${this.state.size}, ₹6,900). I'm also interested in the matching child's set — could you help me with sizing and the order details?`)}`;
+
+    const detailRaw = [
+      { title: 'Fabric & Composition', body: 'Soft blush Chanderi silk with hand-applied gota border.\nLightweight, breathable and gentle on delicate skin. The child’s coordinating piece is lined with pure cotton for comfort.' },
+      { title: 'Sizing & Fit', body: "Mother: XS–XL, or made to custom measurements.\nChild’s coordinating set: made to age, 0–12 years.\nShare height and age on WhatsApp and we'll tailor the fit precisely — at no extra charge." },
+      { title: 'Fabric Care', body: 'Dry clean recommended for the embroidered pieces.\nStore folded in a cool, dry place wrapped in muslin. Keep away from direct sunlight to preserve colour.' },
+      { title: 'Made to Order & Shipping', body: 'Each piece is crafted to order in 2–3 weeks.\nWe ship across India and worldwide; timelines and charges are confirmed over WhatsApp before your order is finalised.' },
+    ];
+    const details = detailRaw.map((d, i) => ({
+      ...d,
+      open: this.state.detail === i,
+      sign: this.state.detail === i ? '–' : '+',
+      toggle: () => this.setState(s => ({ detail: s.detail === i ? -1 : i })),
+    }));
+
+    const related = [
+      { name: 'Little Blossom Lehenga', tag: 'For Little Ones', price: '₹3,900', img: this.px(35327475, 600) },
+      { name: 'Amber Silk Lehenga', tag: 'For Her', price: '₹8,400', img: this.px(7123307, 600) },
+      { name: 'Marigold Festive Gown', tag: 'Festive', price: '₹7,800', img: this.px(5922741, 600) },
+      { name: 'Twirl Festive Frock Set', tag: 'For Little Ones', price: '₹3,400', img: this.px(14757473, 600) },
+    ];
+
+    return { waLink, igLink, activeImg, gallery, sizes, activeSize: this.state.size, waBuy, details, related, menuOpen: this.state.menuOpen, toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })) };
+  }
+}
+</script>
+</body>
+</html>

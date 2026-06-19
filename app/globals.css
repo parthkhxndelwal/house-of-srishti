@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   House of Srishti — design tokens
+   Palette derived directly from the brand logo: rose-magenta script + gold
+   filigree on a soft blush ground. OKLCH throughout.
+--------------------------------------------------------------------------- */
+@theme {
+  --color-blush: oklch(0.967 0.013 350);      /* page ground — soft logo pink   */
+  --color-blush-deep: oklch(0.93 0.028 350);  /* alternating section surface     */
+  --color-blush-strong: oklch(0.895 0.04 350);/* chips, thumbnails, hairwells    */
+
+  --color-rose: oklch(0.55 0.2 6);            /* primary brand magenta-rose      */
+  --color-rose-bright: oklch(0.635 0.205 5);  /* hover / lighter accents         */
+  --color-berry: oklch(0.41 0.15 9);          /* deep berry — dark sections      */
+  --color-berry-deep: oklch(0.32 0.11 12);    /* footer, deepest ground          */
+
+  --color-gold: oklch(0.71 0.1 76);           /* gilded filigree accent (graphics)*/
+  --color-gold-ink: oklch(0.5 0.105 72);      /* gold TEXT on light (>= 4.9:1)    */
+  --color-gold-soft: oklch(0.8 0.082 80);     /* gold on dark grounds            */
+
+  --color-ink: oklch(0.255 0.05 350);         /* headings on light               */
+  --color-ink-body: oklch(0.375 0.042 350);   /* body copy on light (>= 7:1)     */
+  --color-muted: oklch(0.5 0.03 350);         /* meta / captions on light        */
+  --color-line: oklch(0.86 0.022 350);        /* hairlines on light              */
+
+  --color-cream: oklch(0.965 0.013 350);      /* text on dark grounds            */
+  --color-cream-dim: oklch(0.85 0.025 35);    /* secondary text on dark          */
+
+  --font-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
+
+  /* Emil's stronger curves — built-in easings lack punch */
+  --ease-out-quart: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+
+  /* semantic z-scale */
+  --z-sticky: 40;
+  --z-header: 60;
+  --z-menu: 80;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-blush);
+  color: var(--color-ink-body);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-rose);
+  color: var(--color-blush);
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Anchor offset so sticky header never hides section tops */
+:target {
+  scroll-margin-top: 96px;
+}
+
+/* Reduce motion: collapse transforms, keep gentle fades for comprehension */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Continuous marquee — linear, the one constant-motion exception. */
+@keyframes hs-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.hs-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: hs-marquee 36s linear infinite;
+}
+
+/* Slow ken-burns drift on the hero photograph. */
+@keyframes hs-ken {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1.14);
+  }
+}
+
+.hs-ken {
+  animation: hs-ken 24s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hs-marquee-track,
+  .hs-ken {
+    animation: none !important;
+  }
+}
