@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Wordmark } from "@/components/Wordmark";
+import { LogoFull } from "@/components/Logo";
 import { site, instagramLink, waLink, messages } from "@/lib/site";
 
 const columns = [
@@ -29,7 +29,9 @@ export function Footer() {
       <div className="mx-auto max-w-[1360px]">
         <div className="grid gap-10 border-b border-cream/15 pb-12 sm:grid-cols-2 lg:grid-cols-4">
           <div className="max-w-[300px]">
-            <Wordmark size="md" tone="dark" href="/" />
+            <Link href="/" aria-label="House of Srishti, home" className="inline-block">
+              <LogoFull className="h-auto w-[178px]" />
+            </Link>
             <p className="mt-4 text-[13.5px] leading-relaxed text-cream-dim/85">
               Couture for mothers and little ones, handcrafted in India and made
               to be remembered.

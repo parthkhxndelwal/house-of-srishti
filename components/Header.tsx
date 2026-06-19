@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { Wordmark } from "@/components/Wordmark";
+import { LogoLink, LogoHorizontal } from "@/components/Logo";
 import { WhatsAppIcon } from "@/components/icons";
 import { waLink, messages } from "@/lib/site";
 
@@ -46,7 +46,7 @@ export function Header() {
           ))}
         </nav>
 
-        <Wordmark size="md" href="/" />
+        <LogoLink className="h-11 w-auto sm:h-[50px]" />
 
         <div className="hidden flex-1 items-center justify-end gap-7 text-[12px] uppercase tracking-[0.18em] lg:flex">
           {navLinksRight.map((l) => (
@@ -86,7 +86,7 @@ export function Header() {
             transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="flex items-center justify-between">
-              <Wordmark size="sm" href={undefined} />
+              <LogoHorizontal className="h-10 w-auto" />
               <button
                 onClick={() => setOpen(false)}
                 aria-label="Close menu"

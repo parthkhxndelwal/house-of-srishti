@@ -1,11 +1,13 @@
 import Link from "next/link";
-import { Wordmark } from "@/components/Wordmark";
+import { LogoFull } from "@/components/Logo";
 import { LotusMark } from "@/components/icons";
 
 export default function NotFound() {
   return (
     <main className="flex min-h-[100dvh] flex-col items-center justify-center px-6 text-center">
-      <Wordmark size="lg" href="/" />
+      <Link href="/" aria-label="House of Srishti, home">
+        <LogoFull className="h-auto w-[200px]" />
+      </Link>
       <LotusMark className="my-8 h-6 w-10 text-gold" />
       <h1 className="font-display text-[clamp(34px,6vw,64px)] font-medium leading-none text-ink">
         This page wandered off
