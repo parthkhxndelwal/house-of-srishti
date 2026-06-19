@@ -39,14 +39,14 @@ export function Header() {
   return (
     <>
       <header className="sticky top-0 z-[60] border-b border-line/70 bg-blush/95 backdrop-blur-md">
-      <div className="mx-auto flex max-w-[1360px] items-center justify-between gap-5 px-[clamp(20px,5vw,68px)] py-3.5">
+      <div className="mx-auto flex max-w-[1360px] items-center justify-between gap-5 px-[clamp(20px,5vw,68px)] py-2.5">
         <nav className="hidden flex-1 items-center gap-8 text-[12px] uppercase tracking-[0.18em] lg:flex">
           {navLinks.map((l) => (
             <HeaderLink key={l.href} {...l} />
           ))}
         </nav>
 
-        <LogoLink className="h-11 w-auto sm:h-[50px]" />
+        <LogoLink className="h-[52px] w-auto sm:h-[60px]" />
 
         <div className="hidden flex-1 items-center justify-end gap-7 text-[12px] uppercase tracking-[0.18em] lg:flex">
           {navLinksRight.map((l) => (
@@ -86,7 +86,7 @@ export function Header() {
             transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="flex items-center justify-between">
-              <LogoHorizontal className="h-10 w-auto" />
+              <LogoHorizontal className="h-[52px] w-auto" />
               <button
                 onClick={() => setOpen(false)}
                 aria-label="Close menu"
