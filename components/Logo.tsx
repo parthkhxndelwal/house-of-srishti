@@ -11,7 +11,7 @@ export function LogoHorizontal({
 }) {
   return (
     <Image
-      src="/logo-horizontal.png"
+      src="/logo-nav.png"
       alt="House of Srishti"
       width={3950}
       height={1392}
@@ -25,7 +25,7 @@ export function LogoHorizontal({
 export function LogoFull({ className = "" }: { className?: string }) {
   return (
     <Image
-      src="/logo-full.png"
+      src="/logo-stack.png"
       alt="House of Srishti"
       width={1207}
       height={1565}
