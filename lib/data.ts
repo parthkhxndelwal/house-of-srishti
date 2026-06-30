@@ -223,10 +223,7 @@ export const faqs = [
 ];
 
 export const marqueeWords = [
+  "Complimentary styling on WhatsApp",
   "Handcrafted in India",
-  "Ethnic wear for her and little ones",
-  "Pure natural fabrics",
-  "Made to order",
   "Pan India shipping",
-  "Heirloom quality",
 ];
