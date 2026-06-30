@@ -14,9 +14,9 @@ export function LogoHorizontal({
       src="/logo-nav.png"
       alt="House of Srishti"
       width={3950}
-      height={1392}
+      height={1160}
       priority={priority}
-      className={className}
+      className={`object-contain ${className}`}
     />
   );
 }

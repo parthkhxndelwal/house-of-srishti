@@ -39,14 +39,14 @@ export function Header() {
   return (
     <>
       <header className="sticky top-0 z-[60] border-b border-line/70 bg-blush/95 backdrop-blur-md">
-      <div className="mx-auto flex max-w-[1360px] items-center justify-between gap-5 px-[clamp(20px,5vw,68px)] py-2.5">
+      <div className="mx-auto flex max-w-[1360px] items-center justify-between gap-5 px-[clamp(20px,5vw,68px)] py-1.5">
         <nav className="hidden flex-1 items-center gap-8 text-[12px] uppercase tracking-[0.18em] lg:flex">
           {navLinks.map((l) => (
             <HeaderLink key={l.href} {...l} />
           ))}
         </nav>
 
-        <LogoLink className="h-[52px] w-auto sm:h-[60px]" />
+        <LogoLink className="h-[60px] w-auto sm:h-[68px]" />
 
         <div className="hidden flex-1 items-center justify-end gap-7 text-[12px] uppercase tracking-[0.18em] lg:flex">
           {navLinksRight.map((l) => (
@@ -56,7 +56,7 @@ export function Header() {
             href={waLink(messages.general)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-rose px-5 py-2.5 text-[11px] tracking-[0.16em] text-blush transition-[background-color,transform] duration-200 ease-[var(--ease-out-quart)] hover:bg-berry active:scale-[0.97]"
+            className="inline-flex items-center gap-2 rounded-full bg-rose px-5 py-2.5 text-[11px] tracking-[0.16em] text-blush transition-[background-color,transform] duration-200 ease-[var(--ease-out-quart)] hover:bg-rose active:scale-[0.97]"
           >
             <WhatsAppIcon className="h-3.5 w-3.5" />
             WhatsApp
@@ -86,7 +86,7 @@ export function Header() {
             transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="flex items-center justify-between">
-              <LogoHorizontal className="h-[52px] w-auto" />
+              <LogoHorizontal className="h-[60px] w-auto" />
               <button
                 onClick={() => setOpen(false)}
                 aria-label="Close menu"
