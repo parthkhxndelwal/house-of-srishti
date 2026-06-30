@@ -52,7 +52,7 @@ export default async function ProductPage({
   return (
     <>
       <AnnouncementBar>
-        Made to order &nbsp;·&nbsp; Crafted in 2-3 weeks &nbsp;·&nbsp; Worldwide
+        Made to order &nbsp;·&nbsp; Crafted in 2-3 weeks &nbsp;·&nbsp; Pan India
         shipping
       </AnnouncementBar>
       <Header />

@@ -25,50 +25,18 @@ export default function HomePage() {
 
       <main>
         {/* ---------------------------------------------------------- hero */}
-        <section
-          id="top"
-          className="relative flex min-h-[78dvh] max-h-[880px] items-end overflow-hidden"
-        >
-          <div className="absolute inset-0">
+        <section id="top" className="flex justify-center h-[90dvh] overflow-hidden bg-[#bc1a38]">
+          <Link href="/product/nazakat-cotton-salwar-farshi-set" className="block h-full">
             <Image
-              src={pexels(9419108, 1700)}
-              alt="A mother in a hand-embroidered rose lehenga"
-              fill
+              src="/house_of_srishti_hero.png"
+              alt="House of Srishti — Nazakat Cotton Salwar Farshi Set"
+              width={1700}
+              height={2267}
               priority
               sizes="100vw"
-              className="hs-ken object-cover object-[50%_28%]"
+              className="h-full w-auto"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.2_0.06_350/0.22)_0%,transparent_36%,oklch(0.2_0.06_350/0.36)_70%,oklch(0.18_0.06_350/0.82)_100%)]" />
-          </div>
-
-          <div
-            className={`relative w-full ${wrap} ${pad} pb-[clamp(48px,6vw,84px)] text-cream`}
-          >
-            <Reveal className="mb-5 flex items-center gap-3.5">
-              <span className="h-px w-11 bg-gold-soft" />
-              <span className="text-[11px] uppercase tracking-[0.34em] text-gold-soft">
-                Handcrafted Indian ethnic wear
-              </span>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <h1 className="max-w-[15ch] font-display text-[clamp(44px,7vw,92px)] font-medium leading-[0.98] tracking-[-0.01em] [text-shadow:0_2px_34px_oklch(0_0_0/0.3)]">
-                Couture for mothers and little ones
-              </h1>
-            </Reveal>
-            <Reveal delay={0.16} className="mt-8 flex flex-wrap gap-3.5">
-              <Link
-                href="/collections"
-                className="inline-flex items-center justify-center rounded-full bg-blush px-8 py-4 text-[12px] font-medium uppercase tracking-[0.18em] text-berry transition-[background-color,transform] duration-200 ease-[var(--ease-out-quart)] hover:bg-gold-soft active:scale-[0.97]"
-              >
-                Explore the collection
-              </Link>
-              <WhatsAppCTA
-                message={messages.general}
-                variant="ghost-cream"
-                size="lg"
-              />
-            </Reveal>
-          </div>
+          </Link>
         </section>
 
         <Marquee />
@@ -89,14 +57,14 @@ export default function HomePage() {
               id="women"
               eyebrow="For Her"
               title="The Women's Edit"
-              pexelsId={7123307}
+              image="/product_images/NAZAKAT_COTTON_SALWAR_FARSHI_SET/IMG_5696.JPG"
               objectPos="50% 25%"
             />
             <WardrobeCard
               id="kids"
               eyebrow="For Little Ones"
               title="The Children's Edit"
-              pexelsId={14757473}
+              image="/product_images/NAZAKAT_COTTON_SALWAR_FARSHI_SET/IMG_5525.JPG"
               objectPos="50% 22%"
             />
           </div>
@@ -122,7 +90,7 @@ export default function HomePage() {
                 <Link href="/collections" className="group block">
                   <div className="relative aspect-[3/4] overflow-hidden rounded-[4px] bg-blush-strong">
                     <Image
-                      src={pexels(c.pexelsId, 800)}
+                      src={c.image}
                       alt={c.name}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -148,11 +116,11 @@ export default function HomePage() {
         </section>
 
         {/* -------------------------------------------------- brand story */}
-        <section id="story" className="bg-berry text-cream-dim">
+        <section id="story" className="bg-rose text-cream-dim">
           <div className="mx-auto grid max-w-[1440px] items-stretch md:grid-cols-2">
             <div className="relative min-h-[360px] overflow-hidden md:min-h-[560px]">
               <Image
-                src={pexels(13650900, 1100)}
+                src="/created-in-love-section-image.png"
                 alt="Founder of House of Srishti"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -209,10 +177,10 @@ export default function HomePage() {
             </h2>
           </Reveal>
           <div className="grid grid-cols-6 gap-[clamp(12px,1.6vw,20px)]">
-            <LookImage span="col-span-6 sm:col-span-4" ratio="16/11" id={7442282} pos="50% 28%" />
-            <LookImage span="col-span-3 sm:col-span-2" ratio="3/5" id={9418855} pos="50% 30%" />
-            <LookImage span="col-span-3" ratio="3/2" id={35327475} pos="50% 22%" />
-            <LookImage span="col-span-6 sm:col-span-3" ratio="3/2" id={5595710} pos="50% 30%" />
+            <LookImage span="col-span-6 sm:col-span-4" ratio="16/11" src="/product_images/NAZAKAT_COTTON_SALWAR_FARSHI_SET/IMG_5488.JPG" video="/product_images/NAZAKAT_COTTON_SALWAR_FARSHI_SET/8C9B6C0D-F42A-4B7C-BD70-0FCA11B4AC4B.mp4" pos="50% 50%" />
+            <LookImage span="col-span-3 sm:col-span-2" ratio="3/5" src="/product_images/MEHER__MOM_&_DAUGHTER_SALWAR_FARSHI_COTTON_SET/IMG_5782.JPG" pos="50% 30%" />
+            <LookImage span="col-span-3" ratio="3/2" src="/product_images/LAALIMA_KIDS_COTTON_KURTA_AND_SALWAR_FARSHI_SET/IMG_5530.JPG" video="/product_images/LAALIMA_KIDS_COTTON_KURTA_AND_SALWAR_FARSHI_SET/IMG_5537.MOV" pos="50% 22%" />
+            <LookImage span="col-span-6 sm:col-span-3" ratio="3/2" src="/product_images/NEELPARI_KIDS_SHARARA_SET/IMG_5649.JPG" video="/product_images/NEELPARI_KIDS_SHARARA_SET/IMG_5660.MOV" pos="50% 30%" />
           </div>
         </section>
 
@@ -265,7 +233,7 @@ export default function HomePage() {
         {/* ------------------------------------------------------ contact */}
         <section
           id="contact"
-          className={`relative overflow-hidden bg-berry-deep ${pad} py-[clamp(72px,9vw,134px)] text-cream-dim`}
+          className={`relative overflow-hidden bg-rose ${pad} py-[clamp(72px,9vw,134px)] text-cream-dim`}
         >
           <Image
             src={pexels(15305987, 1400)}
@@ -316,13 +284,13 @@ function WardrobeCard({
   id,
   eyebrow,
   title,
-  pexelsId,
+  image,
   objectPos,
 }: {
   id: string;
   eyebrow: string;
   title: string;
-  pexelsId: number;
+  image: string;
   objectPos: string;
 }) {
   return (
@@ -330,7 +298,7 @@ function WardrobeCard({
       <Link href="/collections" className="group block">
         <div className="relative aspect-[4/5] overflow-hidden rounded-[4px]">
           <Image
-            src={pexels(pexelsId, 1000)}
+            src={image}
             alt={title}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
@@ -358,25 +326,39 @@ function WardrobeCard({
 function LookImage({
   span,
   ratio,
-  id,
+  src,
   pos,
+  video,
 }: {
   span: string;
   ratio: string;
-  id: number;
+  src: string;
   pos: string;
+  video?: string;
 }) {
   return (
     <Reveal as="div" className={`${span} overflow-hidden rounded-[4px]`}>
       <div className="group relative h-full w-full" style={{ aspectRatio: ratio }}>
-        <Image
-          src={pexels(id, 1200)}
-          alt="House of Srishti festive lookbook"
-          fill
-          sizes="(max-width: 640px) 100vw, 50vw"
-          style={{ objectPosition: pos }}
-          className="object-cover transition-transform duration-[1400ms] ease-[var(--ease-out-quart)] group-hover:scale-[1.05]"
-        />
+        {video ? (
+          <video
+            src={video}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-[var(--ease-out-quart)] group-hover:scale-[1.05]"
+            style={{ objectPosition: pos }}
+          />
+        ) : (
+          <Image
+            src={src}
+            alt="House of Srishti festive lookbook"
+            fill
+            sizes="(max-width: 640px) 100vw, 50vw"
+            style={{ objectPosition: pos }}
+            className="object-cover transition-transform duration-[1400ms] ease-[var(--ease-out-quart)] group-hover:scale-[1.05]"
+          />
+        )}
       </div>
     </Reveal>
   );

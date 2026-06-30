@@ -10,8 +10,8 @@
   --color-blush-deep: oklch(0.93 0.028 350);  /* alternating section surface     */
   --color-blush-strong: oklch(0.895 0.04 350);/* chips, thumbnails, hairwells    */
 
-  --color-rose: oklch(0.55 0.2 6);            /* primary brand magenta-rose      */
-  --color-rose-bright: oklch(0.635 0.205 5);  /* hover / lighter accents         */
+  --color-rose: oklch(0.513 0.192 19.0);        /* primary brand crimson-red       */
+  --color-rose-bright: oklch(0.58 0.195 17);   /* hover / lighter accents         */
   --color-berry: oklch(0.41 0.15 9);          /* deep berry — dark sections      */
   --color-berry-deep: oklch(0.32 0.11 12);    /* footer, deepest ground          */
 
