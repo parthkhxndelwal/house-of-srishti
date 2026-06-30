@@ -27,6 +27,7 @@ export default function HomePage() {
         {/* ---------------------------------------------------------- hero */}
         <section id="top" className="flex justify-center h-[90dvh] overflow-hidden bg-[#bc1a38]">
           <Link href="/product/nazakat-cotton-salwar-farshi-set" className="block h-full">
+            {/* Desktop hero image */}
             <Image
               src="/house_of_srishti_hero.png"
               alt="House of Srishti — Nazakat Cotton Salwar Farshi Set"
@@ -34,7 +35,17 @@ export default function HomePage() {
               height={2267}
               priority
               sizes="100vw"
-              className="h-full w-auto"
+              className="h-full w-auto hidden md:block"
+            />
+            {/* Mobile hero image */}
+            <Image
+              src="/house_of_srishti_hero_mobile.png"
+              alt="House of Srishti — Nazakat Cotton Salwar Farshi Set"
+              width={1200}
+              height={1600}
+              priority
+              sizes="100vw"
+              className="h-full w-auto block md:hidden"
             />
           </Link>
         </section>
