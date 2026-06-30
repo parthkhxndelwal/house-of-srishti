@@ -25,7 +25,7 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="bg-berry-deep px-[clamp(20px,5vw,68px)] pb-9 pt-[clamp(56px,7vw,88px)] text-cream-dim">
+    <footer className="bg-rose px-[clamp(20px,5vw,68px)] pb-9 pt-[clamp(56px,7vw,88px)] text-cream-dim">
       <div className="mx-auto max-w-[1360px]">
         <div className="grid gap-10 border-b border-cream/15 pb-12 sm:grid-cols-2 lg:grid-cols-4">
           <div className="max-w-[300px]">
