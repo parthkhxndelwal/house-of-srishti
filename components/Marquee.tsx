@@ -10,7 +10,7 @@ export function Marquee() {
     <div className="flex shrink-0 items-center" aria-hidden="true">
       {marqueeWords.map((word) => (
         <span key={word} className="flex items-center">
-          <span className="px-7 font-display text-[clamp(18px,2vw,22px)] italic text-rose">
+          <span className="px-7 font-display text-[clamp(18px,2vw,22px)] italic text-blush">
             {word}
           </span>
           <LotusMark className="h-3.5 w-5 text-gold" />
@@ -20,8 +20,10 @@ export function Marquee() {
   );
 
   return (
-    <div className="overflow-hidden border-y border-line bg-blush-deep py-4">
+    <div className="overflow-hidden border-y border-rose bg-rose py-4">
       <div className="hs-marquee-track">
+        {run}
+        {run}
         {run}
         {run}
       </div>
