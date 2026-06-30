@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
@@ -9,20 +9,34 @@ import { pexels, type Product } from "@/lib/data";
 import { waLink, instagramLink } from "@/lib/site";
 
 const SIZES = ["XS", "S", "M", "L", "XL"];
+const KIDS_SIZES = ["2-3 yrs", "4-5 yrs", "6-7 yrs", "8-9 yrs", "10-12 yrs"];
 
 export function ProductClient({
   product,
   galleryIds,
+  galleryPaths,
 }: {
   product: Product;
-  galleryIds: number[];
+  galleryIds?: number[];
+  galleryPaths?: string[];
 }) {
   const [imgIdx, setImgIdx] = useState(0);
-  const [size, setSize] = useState("M");
+  const isKidsOnly = product.cats.includes("For Little Ones") && !product.cats.includes("For Her");
+  const defaultSize = isKidsOnly ? "4-5 yrs" : "M";
+  const [size, setSize] = useState(defaultSize);
+  const availableSizes = isKidsOnly ? KIDS_SIZES : SIZES;
   const [openDetail, setOpenDetail] = useState(0);
   const reduce = useReducedMotion();
 
-  const activeImg = pexels(galleryIds[imgIdx], 1000);
+  const hasLocalImages = galleryPaths && galleryPaths.length > 0;
+  const galleryItems = hasLocalImages ? galleryPaths : galleryIds;
+  const activeImg = hasLocalImages ? galleryPaths![imgIdx] : pexels(galleryIds![imgIdx], 1000);
+
+  const thumbRef = useRef<HTMLDivElement>(null);
+  const scrollThumbs = useCallback((dir: number) => {
+    if (!thumbRef.current) return;
+    thumbRef.current.scrollBy({ left: dir * 160, behavior: "smooth" });
+  }, []);
 
   const details = useMemo(
     () => [
@@ -40,7 +54,7 @@ export function ProductClient({
       },
       {
         title: "Made to Order & Shipping",
-        body: "Each piece is crafted to order in 2 to 3 weeks. We ship across India and worldwide; timelines and charges are confirmed over WhatsApp before your order is finalised.",
+        body: "Each piece is crafted to order in 2 to 3 weeks. We ship across India; timelines and charges are confirmed over WhatsApp before your order is finalised.",
       },
     ],
     [product.fabric],
@@ -54,30 +68,54 @@ export function ProductClient({
     <section className="mx-auto grid max-w-[1360px] items-start gap-[clamp(32px,4vw,72px)] px-[clamp(20px,5vw,68px)] pb-[clamp(60px,7vw,90px)] pt-[clamp(24px,4vw,46px)] md:grid-cols-2">
       {/* gallery */}
       <div className="flex flex-col-reverse gap-3.5 md:sticky md:top-[92px]">
-        <div className="flex gap-3">
-          {galleryIds.map((id, i) => (
-            <button
-              key={id + "-" + i}
-              onClick={() => setImgIdx(i)}
-              aria-label={`View image ${i + 1}`}
-              aria-pressed={imgIdx === i}
-              className={`h-24 w-[76px] shrink-0 overflow-hidden rounded-[4px] border transition-[border-color,transform] duration-200 active:scale-[0.96] ${
-                imgIdx === i ? "border-rose" : "border-line"
-              }`}
-            >
-              <span className="relative block h-full w-full">
-                <Image
-                  src={pexels(id, 220)}
-                  alt=""
-                  fill
-                  sizes="76px"
-                  className={`object-cover transition-opacity duration-200 ${
-                    imgIdx === i ? "opacity-100" : "opacity-70"
-                  }`}
-                />
-              </span>
-            </button>
-          ))}
+        <div className="relative">
+          <div ref={thumbRef} className="flex gap-3 overflow-hidden">
+            {galleryItems!.map((id, i) => (
+              <button
+                key={id + "-" + i}
+                onClick={() => setImgIdx(i)}
+                aria-label={`View image ${i + 1}`}
+                aria-pressed={imgIdx === i}
+                className={`h-24 w-[76px] shrink-0 overflow-hidden rounded-[4px] border transition-[border-color,transform] duration-200 active:scale-[0.96] ${
+                  imgIdx === i ? "border-rose" : "border-line"
+                }`}
+              >
+                <span className="relative block h-full w-full">
+                  <Image
+                    src={hasLocalImages ? (galleryPaths as string[])[i] : pexels(id as number, 220)}
+                    alt=""
+                    fill
+                    sizes="76px"
+                    className={`object-cover transition-opacity duration-200 ${
+                      imgIdx === i ? "opacity-100" : "opacity-70"
+                    }`}
+                  />
+                </span>
+              </button>
+            ))}
+          </div>
+          {galleryItems!.length > 4 && (
+            <>
+              <button
+                onClick={() => scrollThumbs(-1)}
+                aria-label="Scroll thumbnails left"
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-rose/90 text-blush shadow-md transition-transform hover:bg-berry active:scale-95"
+              >
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+              </button>
+              <button
+                onClick={() => scrollThumbs(1)}
+                aria-label="Scroll thumbnails right"
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-rose/90 text-blush shadow-md transition-transform hover:bg-berry active:scale-95"
+              >
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+              </button>
+            </>
+          )}
         </div>
         <div className="relative aspect-[4/5] overflow-hidden rounded-[5px] bg-blush-strong">
           <AnimatePresence mode="wait">
@@ -112,9 +150,11 @@ export function ProductClient({
         </h1>
         <div className="mb-2 flex flex-wrap items-center gap-3.5">
           <span className="font-display text-[30px] text-ink">{product.price}</span>
-          <span className="text-[13px] text-muted">
-            mother&rsquo;s piece · child&rsquo;s set from ₹3,400
-          </span>
+          {product.cats.includes("For Little Ones") && product.cats.includes("For Her") && (
+            <span className="text-[13px] text-muted">
+              Mom & Daughter coordinating set
+            </span>
+          )}
         </div>
         <div className="mb-6 text-[14px] tracking-[2px] text-gold-ink" aria-label="Rated 5 out of 5, 48 reviews">
           &#9733;&#9733;&#9733;&#9733;&#9733;{" "}
@@ -122,13 +162,17 @@ export function ProductClient({
         </div>
 
         <p className="mb-7 text-[16px] leading-[1.85] text-ink-body">
-          A blush rosewater piece hand-finished in soft {product.fabric.toLowerCase()},
-          with a delicate gota border and a matching pre-stitched option for ease.
-          Pair it with the coordinating{" "}
-          <em className="font-display not-italic text-rose">Little Blossom</em>{" "}
-          lehenga for your daughter, designed to complement, never to copy. Made
-          for festivals, first celebrations and photographs you&rsquo;ll keep
-          forever.
+          {product.desc ? (
+            product.desc
+          ) : (
+            <>A blush rosewater piece hand-finished in soft {product.fabric.toLowerCase()},
+            with a delicate gota border and a matching pre-stitched option for ease.
+            Pair it with the coordinating{" "}
+            <em className="font-display not-italic text-rose">Little Blossom</em>{" "}
+            lehenga for your daughter, designed to complement, never to copy. Made
+            for festivals, first celebrations and photographs you&rsquo;ll keep
+            forever.</>
+          )}
         </p>
 
         {/* size */}
@@ -144,7 +188,7 @@ export function ProductClient({
           </Link>
         </div>
         <div className="mb-6 flex flex-wrap gap-2.5">
-          {SIZES.map((s) => {
+          {availableSizes.map((s) => {
             const on = size === s;
             return (
               <button
@@ -163,9 +207,13 @@ export function ProductClient({
           })}
         </div>
         <p className="mb-7 text-[13.5px] leading-relaxed text-ink-body">
-          Adding the matching child&rsquo;s set? Tell us your little one&rsquo;s
-          age and height on WhatsApp and we&rsquo;ll tailor the fit (0 to 12
-          years). Custom measurements welcome at no extra cost.
+          {isKidsOnly ? (
+            <>Tell us your little one&rsquo;s age and height on WhatsApp and we&rsquo;ll tailor the fit (2 to 12 years). Custom measurements welcome at no extra cost.</>
+          ) : (
+            <>Adding the matching child&rsquo;s set? Tell us your little one&rsquo;s
+            age and height on WhatsApp and we&rsquo;ll tailor the fit (0 to 12
+            years). Custom measurements welcome at no extra cost.</>
+          )}
         </p>
 
         {/* CTAs */}
@@ -195,7 +243,7 @@ export function ProductClient({
           {[
             ["2-3 wks", "Made to order"],
             ["Custom", "Free sizing"],
-            ["Global", "Shipping"],
+            ["Pan India", "Shipping"],
           ].map(([big, small], i) => (
             <div
               key={small}

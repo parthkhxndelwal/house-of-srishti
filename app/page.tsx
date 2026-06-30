@@ -19,7 +19,7 @@ export default function HomePage() {
     <>
       <AnnouncementBar>
         Complimentary styling on WhatsApp &nbsp;·&nbsp; Handcrafted in India
-        &nbsp;·&nbsp; Worldwide shipping
+        &nbsp;·&nbsp; Pan India shipping
       </AnnouncementBar>
       <Header />
 

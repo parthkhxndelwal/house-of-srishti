@@ -43,6 +43,8 @@ export default async function ProductPage({
     ...galleryPool.filter((id) => id !== product.pexelsId),
   ].slice(0, 4);
 
+  const galleryPaths = product.images?.slice(0, 12);
+
   const related = products
     .filter((p) => p.slug !== product.slug)
     .slice(0, 4);
@@ -72,7 +74,7 @@ export default async function ProductPage({
           <span className="text-rose">{product.name}</span>
         </nav>
 
-        <ProductClient product={product} galleryIds={galleryIds} />
+        <ProductClient product={product} galleryIds={galleryIds} galleryPaths={galleryPaths} />
 
         {/* complete the look */}
         <section className="bg-blush-deep px-[clamp(20px,5vw,68px)] py-[clamp(60px,8vw,110px)]">
