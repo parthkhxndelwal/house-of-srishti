@@ -7,7 +7,7 @@ const base =
   "inline-flex items-center justify-center gap-2.5 rounded-full text-[12.5px] font-medium uppercase tracking-[0.14em] transition-[background-color,border-color,transform] duration-200 ease-[var(--ease-out-quart)] active:scale-[0.97]";
 
 const variants: Record<Variant, string> = {
-  "solid-rose": "bg-rose text-blush hover:bg-berry",
+  "solid-rose": "bg-rose text-blush hover:bg-rose",
   "solid-cream": "bg-blush text-berry hover:bg-gold-soft",
   "ghost-cream":
     "border border-cream/50 text-cream hover:bg-cream/12 hover:border-cream/70",
