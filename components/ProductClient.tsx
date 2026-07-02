@@ -38,6 +38,24 @@ export function ProductClient({
     thumbRef.current.scrollBy({ left: dir * 160, behavior: "smooth" });
   }, []);
 
+  const swipeStart = useRef<{ x: number; y: number; time: number } | null>(null);
+  const handleSwipeStart = (e: React.PointerEvent) => {
+    swipeStart.current = { x: e.clientX, y: e.clientY, time: Date.now() };
+  };
+  const handleSwipeEnd = (e: React.PointerEvent) => {
+    if (!swipeStart.current) return;
+    const dx = e.clientX - swipeStart.current.x;
+    const dy = e.clientY - swipeStart.current.y;
+    const dt = Date.now() - swipeStart.current.time;
+    swipeStart.current = null;
+    if (Math.abs(dx) > 50 && Math.abs(dy) < 60 && dt < 500) {
+      setImgIdx((prev) => {
+        const next = prev + (dx < 0 ? 1 : -1);
+        return Math.max(0, Math.min(galleryItems!.length - 1, next));
+      });
+    }
+  };
+
   const details = useMemo(
     () => [
       {
@@ -65,10 +83,65 @@ export function ProductClient({
   );
 
   return (
-    <section className="mx-auto grid max-w-[1360px] items-start gap-[clamp(32px,4vw,72px)] px-[clamp(20px,5vw,68px)] pb-[clamp(60px,7vw,90px)] pt-[clamp(24px,4vw,46px)] md:grid-cols-2">
+    <section className="mx-auto grid max-w-[1360px] items-start gap-[clamp(32px,4vw,72px)] px-[clamp(20px,5vw,68px)] pb-[clamp(110px,12vw,90px)] pt-[clamp(24px,4vw,46px)] md:grid-cols-2 md:pb-[clamp(60px,7vw,90px)]">
       {/* gallery */}
-      <div className="flex flex-col-reverse gap-3.5 md:sticky md:top-[92px]">
-        <div className="relative">
+      <div className="flex flex-col gap-3 md:sticky md:top-[92px]">
+        {/* main image */}
+        <div
+          className="relative aspect-[4/5] max-h-[45dvh] overflow-hidden rounded-[5px] bg-blush-strong md:max-h-none"
+          style={{ touchAction: "pan-y" }}
+          onPointerDown={handleSwipeStart}
+          onPointerUp={handleSwipeEnd}
+          onPointerCancel={() => { swipeStart.current = null; }}
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={imgIdx}
+              initial={reduce ? false : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={activeImg}
+                alt={product.name}
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </motion.div>
+          </AnimatePresence>
+          <span className="absolute bottom-3 right-3 z-10 rounded-full bg-ink/55 px-2.5 py-1 text-[11px] tracking-[0.06em] text-blush/90">
+            {imgIdx + 1} / {galleryItems!.length}
+          </span>
+        </div>
+
+        {/* dot indicators */}
+        <div
+          className="flex items-center justify-center gap-1.5 md:hidden"
+          role="tablist"
+          aria-label="Image gallery"
+        >
+          {galleryItems!.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setImgIdx(i)}
+              role="tab"
+              aria-label={`View image ${i + 1}`}
+              aria-selected={imgIdx === i}
+              className={`rounded-full transition-all duration-300 ease-[var(--ease-out-quart)] ${
+                i === imgIdx
+                  ? "w-5 bg-rose"
+                  : "w-1.5 bg-line hover:bg-muted"
+              } h-1.5`}
+            />
+          ))}
+        </div>
+
+        {/* thumbnail strip */}
+        <div className="relative hidden md:block">
           <div ref={thumbRef} className="flex gap-3 overflow-hidden">
             {galleryItems!.map((id, i) => (
               <button
@@ -77,7 +150,7 @@ export function ProductClient({
                 aria-label={`View image ${i + 1}`}
                 aria-pressed={imgIdx === i}
                 className={`h-24 w-[76px] shrink-0 overflow-hidden rounded-[4px] border transition-[border-color,transform] duration-200 active:scale-[0.96] ${
-                  imgIdx === i ? "border-rose" : "border-line"
+                  imgIdx === i ? "border-rose" : "border-line hover:border-rose/50"
                 }`}
               >
                 <span className="relative block h-full w-full">
@@ -87,7 +160,7 @@ export function ProductClient({
                     fill
                     sizes="76px"
                     className={`object-cover transition-opacity duration-200 ${
-                      imgIdx === i ? "opacity-100" : "opacity-70"
+                      imgIdx === i ? "opacity-100" : "opacity-70 hover:opacity-100"
                     }`}
                   />
                 </span>
@@ -116,27 +189,6 @@ export function ProductClient({
               </button>
             </>
           )}
-        </div>
-        <div className="relative aspect-[4/5] overflow-hidden rounded-[5px] bg-blush-strong">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={imgIdx}
-              initial={reduce ? false : { opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
-              className="absolute inset-0"
-            >
-              <Image
-                src={activeImg}
-                alt={product.name}
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-              />
-            </motion.div>
-          </AnimatePresence>
         </div>
       </div>
 
@@ -296,6 +348,20 @@ export function ProductClient({
             );
           })}
         </div>
+      </div>
+      {/* /info */}
+
+      {/* sticky bottom CTA — mobile only */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-line bg-blush/95 px-[clamp(20px,5vw,68px)] py-3 backdrop-blur-md md:hidden">
+        <a
+          href={waBuy}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex w-full items-center justify-center gap-3 rounded-full bg-rose py-[15px] text-[12px] font-medium uppercase tracking-[0.16em] text-blush shadow-lg transition-transform active:scale-[0.98]"
+        >
+          <WhatsAppIcon className="h-[18px] w-[18px]" />
+          Enquire to order · {product.price}
+        </a>
       </div>
     </section>
   );
