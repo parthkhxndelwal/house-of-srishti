@@ -24,8 +24,8 @@ export function CollectionsClient() {
 
   return (
     <>
-      {/* sticky filter rail */}
-      <div className="sticky top-[60px] z-40 border-b border-line bg-blush/95 px-[clamp(20px,5vw,68px)] py-4 backdrop-blur-md">
+      {/* filter rail */}
+      <div className="border-b border-line bg-blush/95 px-[clamp(20px,5vw,68px)] py-4">
         <div className="mx-auto flex max-w-[1360px] flex-wrap justify-center gap-2.5">
           {filterCategories.map((cat) => {
             const on = active === cat;

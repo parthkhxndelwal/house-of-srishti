@@ -8,13 +8,13 @@ import { WhatsAppIcon } from "@/components/icons";
 import { waLink, messages } from "@/lib/site";
 
 const navLinks = [
-  { label: "Collections", href: "/collections" },
-  { label: "For Her", href: "/#women" },
-  { label: "For Little Ones", href: "/#kids" },
+  { label: "Shop All", href: "/collections" },
+  { label: "Women", href: "/#women" },
+  { label: "Kids", href: "/#kids" },
 ];
 
 const navLinksRight = [
-  { label: "Story", href: "/#story" },
+  { label: "Our Story", href: "/#story" },
   { label: "Reviews", href: "/#reviews" },
 ];
 
