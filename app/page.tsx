@@ -26,7 +26,7 @@ export default function HomePage() {
       <main>
         {/* ---------------------------------------------------------- hero */}
         <section id="top" className="flex justify-center md:h-[90dvh] h-auto overflow-hidden bg-[#ff3b5f]">
-          <Link href="/product/nazakat-cotton-salwar-farshi-set" className="block h-full">
+          <Link href="/collections" className="block h-full">
             {/* Desktop hero image */}
             <Image
               src="/house_of_srishti_hero.png"
