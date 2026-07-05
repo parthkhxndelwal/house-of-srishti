@@ -25,7 +25,7 @@ export default function HomePage() {
 
       <main>
         {/* ---------------------------------------------------------- hero */}
-        <section id="top" className="flex justify-center md:h-[90dvh] h-auto overflow-hidden bg-[#bc1a38]">
+        <section id="top" className="flex justify-center md:h-[90dvh] h-auto overflow-hidden bg-[#ff3b5f]">
           <Link href="/product/nazakat-cotton-salwar-farshi-set" className="block h-full">
             {/* Desktop hero image */}
             <Image
@@ -127,7 +127,7 @@ export default function HomePage() {
         </section>
 
         {/* -------------------------------------------------- brand story */}
-        <section id="story" className="bg-rose text-cream-dim">
+        <section id="story" className="bg-[#ff3b5f] text-cream-dim">
           <div className="mx-auto grid max-w-[1440px] items-stretch md:grid-cols-2">
             <div className="relative min-h-[360px] overflow-hidden md:min-h-[560px]">
               <Image
@@ -143,19 +143,19 @@ export default function HomePage() {
                 <LotusMark className="h-5 w-8 text-gold-soft" />
               </div>
               <h2 className="mb-6 font-display text-[clamp(32px,4.4vw,56px)] font-medium leading-[1.07] text-cream">
-                Created in love, finished by hand
+                House of Srishti was born from a simple idea
               </h2>
               <p className="mb-4 text-[16px] leading-[1.9] text-cream-dim/90">
-                <em className="font-display not-italic text-cream">Srishti</em>{" "}
-                means creation. We began with a simple wish: to dress a mother
-                and her child in pieces as thoughtful as the bond they share.
-                Today each garment is cut, embroidered and finished by a small
-                circle of Indian artisans.
+                to create beautiful outfits that make every little moment feel
+                special. Inspired by the bond between mothers and their children,
+                our collection is designed to bring comfort, elegance, and joy
+                to every celebration.
               </p>
               <p className="mb-9 text-[16px] leading-[1.9] text-cream-dim/90">
-                Nothing is mass-produced. Everything is made to order, to your
-                measurements, in fabrics chosen to feel as gentle on little skin
-                as they look on you.
+                We carefully select fabrics and designs that feel soft, stylish,
+                and easy to wear. Whether it&rsquo;s a family gathering, festive
+                occasion, or a special day, our outfits are made to help you
+                create memories you&rsquo;ll cherish foreve.
               </p>
               <dl className="grid grid-cols-3 gap-5 border-t border-gold-soft/30 pt-8">
                 {[
@@ -214,7 +214,7 @@ export default function HomePage() {
                       &ldquo;{r.quote}&rdquo;
                     </blockquote>
                     <figcaption className="mt-auto flex items-center gap-3.5">
-                      <span className="flex h-11 w-11 items-center justify-center rounded-full bg-rose font-display text-[21px] text-blush">
+                      <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#ff3b5f] font-display text-[21px] text-blush">
                         {r.initial}
                       </span>
                       <span>
@@ -244,7 +244,7 @@ export default function HomePage() {
         {/* ------------------------------------------------------ contact */}
         <section
           id="contact"
-          className={`relative overflow-hidden bg-rose ${pad} py-[clamp(72px,9vw,134px)] text-cream-dim`}
+          className={`relative overflow-hidden bg-[#ff3b5f] ${pad} py-[clamp(72px,9vw,134px)] text-cream-dim`}
         >
           <Image
             src={pexels(15305987, 1400)}
