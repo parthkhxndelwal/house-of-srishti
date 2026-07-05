@@ -42,7 +42,7 @@ export default function CollectionsPage() {
         <CollectionsClient />
 
         {/* CTA band */}
-        <section className="relative overflow-hidden bg-rose px-[clamp(20px,5vw,68px)] py-[clamp(60px,8vw,112px)] text-center text-cream">
+        <section className="relative overflow-hidden bg-[#ff3b5f] px-[clamp(20px,5vw,68px)] py-[clamp(60px,8vw,112px)] text-center text-cream">
           <div className="relative mx-auto max-w-[640px]">
             <h2 className="mb-4 font-display text-[clamp(30px,4.4vw,54px)] font-medium leading-[1.05] text-cream">
               Can&rsquo;t decide? We&rsquo;ll help you style it.

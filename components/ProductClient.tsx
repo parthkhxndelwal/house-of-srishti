@@ -133,7 +133,7 @@ export function ProductClient({
               aria-selected={imgIdx === i}
               className={`rounded-full transition-all duration-300 ease-[var(--ease-out-quart)] ${
                 i === imgIdx
-                  ? "w-5 bg-rose"
+                  ? "w-5 bg-[#ff3b5f]"
                   : "w-1.5 bg-line hover:bg-muted"
               } h-1.5`}
             />
@@ -172,7 +172,7 @@ export function ProductClient({
               <button
                 onClick={() => scrollThumbs(-1)}
                 aria-label="Scroll thumbnails left"
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-rose/90 text-blush shadow-md transition-transform hover:bg-rose active:scale-95"
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-[#ff3b5f]/90 text-blush shadow-md transition-transform hover:bg-[#ff3b5f] active:scale-95"
               >
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -181,7 +181,7 @@ export function ProductClient({
               <button
                 onClick={() => scrollThumbs(1)}
                 aria-label="Scroll thumbnails right"
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-rose/90 text-blush shadow-md transition-transform hover:bg-rose active:scale-95"
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-[#ff3b5f]/90 text-blush shadow-md transition-transform hover:bg-[#ff3b5f] active:scale-95"
               >
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
@@ -249,7 +249,7 @@ export function ProductClient({
                 aria-pressed={on}
                 className={`min-w-[52px] rounded-[4px] border px-4 py-3 text-[13px] tracking-[0.06em] transition-[background-color,color,border-color,transform] duration-200 active:scale-[0.96] ${
                   on
-                    ? "border-rose bg-rose text-blush"
+                    ? "border-rose bg-[#ff3b5f] text-blush"
                     : "border-line bg-transparent text-ink hover:border-rose"
                 }`}
               >
@@ -274,7 +274,7 @@ export function ProductClient({
             href={waBuy}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-3 rounded-full bg-rose px-6 py-[18px] text-[13px] font-medium uppercase tracking-[0.16em] text-blush transition-[background-color,transform] duration-200 ease-[var(--ease-out-quart)] hover:bg-rose active:scale-[0.98]"
+            className="inline-flex items-center justify-center gap-3 rounded-full bg-[#ff3b5f] px-6 py-[18px] text-[13px] font-medium uppercase tracking-[0.16em] text-blush transition-[background-color,transform] duration-200 ease-[var(--ease-out-quart)] hover:bg-[#ff3b5f] active:scale-[0.98]"
           >
             <WhatsAppIcon className="h-[18px] w-[18px]" />
             Enquire to order
@@ -357,7 +357,7 @@ export function ProductClient({
           href={waBuy}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex w-full items-center justify-center gap-3 rounded-full bg-rose py-[15px] text-[12px] font-medium uppercase tracking-[0.16em] text-blush shadow-lg transition-transform active:scale-[0.98]"
+          className="flex w-full items-center justify-center gap-3 rounded-full bg-[#ff3b5f] py-[15px] text-[12px] font-medium uppercase tracking-[0.16em] text-blush shadow-lg transition-transform active:scale-[0.98]"
         >
           <WhatsAppIcon className="h-[18px] w-[18px]" />
           Enquire to order · {product.price}

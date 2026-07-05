@@ -36,7 +36,7 @@ export function CollectionsClient() {
                 aria-pressed={on}
                 className={`rounded-full border px-5 py-2.5 text-[11.5px] uppercase tracking-[0.14em] transition-[background-color,color,border-color,transform] duration-200 ease-[var(--ease-out-quart)] active:scale-[0.97] ${
                   on
-                    ? "border-rose bg-rose text-blush"
+                    ? "border-rose bg-[#ff3b5f] text-blush"
                     : "border-line bg-transparent text-rose hover:border-rose"
                 }`}
               >

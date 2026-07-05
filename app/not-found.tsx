@@ -19,7 +19,7 @@ export default function NotFound() {
       <div className="mt-9 flex flex-wrap justify-center gap-3.5">
         <Link
           href="/collections"
-          className="rounded-full bg-rose px-8 py-4 text-[12px] font-medium uppercase tracking-[0.16em] text-blush transition-[background-color,transform] duration-200 hover:bg-rose active:scale-[0.97]"
+          className="rounded-full bg-[#ff3b5f] px-8 py-4 text-[12px] font-medium uppercase tracking-[0.16em] text-blush transition-[background-color,transform] duration-200 hover:bg-[#ff3b5f] active:scale-[0.97]"
         >
           Browse collections
         </Link>

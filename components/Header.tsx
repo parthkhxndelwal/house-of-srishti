@@ -56,7 +56,7 @@ export function Header() {
             href={waLink(messages.general)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-rose px-5 py-2.5 text-[11px] tracking-[0.16em] text-blush transition-[background-color,transform] duration-200 ease-[var(--ease-out-quart)] hover:bg-rose active:scale-[0.97]"
+            className="inline-flex items-center gap-2 rounded-full bg-[#ff3b5f] px-5 py-2.5 text-[11px] tracking-[0.16em] text-blush transition-[background-color,transform] duration-200 ease-[var(--ease-out-quart)] hover:bg-[#ff3b5f] active:scale-[0.97]"
           >
             <WhatsAppIcon className="h-3.5 w-3.5" />
             WhatsApp
@@ -112,7 +112,7 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
-              className="mt-auto rounded-full bg-rose px-6 py-4 text-center text-[13px] uppercase tracking-[0.18em] text-blush active:scale-[0.98]"
+              className="mt-auto rounded-full bg-[#ff3b5f] px-6 py-4 text-center text-[13px] uppercase tracking-[0.18em] text-blush active:scale-[0.98]"
             >
               Enquire on WhatsApp
             </a>
