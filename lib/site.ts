@@ -8,7 +8,7 @@ export const site = {
   shortName: "Srishti",
   email: "hello@houseofsrishti.com",
   whatsappNumber: "919891014429", // digits only, incl. country code
-  instagramHandle: "houseofsrishti",
+  instagramHandle: "houseofsrishti_",
   tagline: "Couture for mothers and little ones, handcrafted in India.",
 } as const;
 
