@@ -7,7 +7,7 @@ export const site = {
   name: "House of Srishti",
   shortName: "Srishti",
   email: "hello@houseofsrishti.com",
-  whatsappNumber: "919000000000", // digits only, incl. country code
+  whatsappNumber: "919891014429", // digits only, incl. country code
   instagramHandle: "houseofsrishti",
   tagline: "Couture for mothers and little ones, handcrafted in India.",
 } as const;
