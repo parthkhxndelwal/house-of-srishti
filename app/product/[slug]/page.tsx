@@ -93,7 +93,7 @@ export default async function ProductPage({
                   <Link href={`/product/${p.slug}`} className="group block">
                     <div className="relative aspect-[4/5] overflow-hidden rounded-[4px] bg-blush">
                       <Image
-                        src={pexels(p.pexelsId, 600)}
+                        src={p.images?.[0] || pexels(p.pexelsId, 600)}
                         alt={p.name}
                         fill
                         sizes="(max-width: 640px) 50vw, 25vw"
