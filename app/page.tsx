@@ -25,7 +25,7 @@ export default function HomePage() {
 
       <main>
         {/* ---------------------------------------------------------- hero */}
-        <section id="top" className="flex justify-center h-[90dvh] overflow-hidden bg-[#bc1a38]">
+        <section id="top" className="flex justify-center md:h-[90dvh] h-auto overflow-hidden bg-[#bc1a38]">
           <Link href="/product/nazakat-cotton-salwar-farshi-set" className="block h-full">
             {/* Desktop hero image */}
             <Image
@@ -45,7 +45,7 @@ export default function HomePage() {
               height={1600}
               priority
               sizes="100vw"
-              className="h-full w-auto block md:hidden"
+              className="w-screen h-auto block md:hidden"
             />
           </Link>
         </section>
