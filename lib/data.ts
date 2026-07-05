@@ -98,10 +98,6 @@ export const products: Product[] = [
     images: [
       "/product_images/MEHER__MOM_&_DAUGHTER_SALWAR_FARSHI_COTTON_SET/IMG_5782.JPG",
       "/product_images/MEHER__MOM_&_DAUGHTER_SALWAR_FARSHI_COTTON_SET/IMG_5791.JPG",
-      "/product_images/MEHER__MOM_&_DAUGHTER_SALWAR_FARSHI_COTTON_SET/IMG_5820.JPG",
-      "/product_images/MEHER__MOM_&_DAUGHTER_SALWAR_FARSHI_COTTON_SET/IMG_5824.JPG",
-      "/product_images/MEHER__MOM_&_DAUGHTER_SALWAR_FARSHI_COTTON_SET/IMG_5825.JPG",
-      "/product_images/MEHER__MOM_&_DAUGHTER_SALWAR_FARSHI_COTTON_SET/IMG_5835.JPG",
       "/product_images/MEHER__MOM_&_DAUGHTER_SALWAR_FARSHI_COTTON_SET/IMG_5836.JPG",
       "/product_images/MEHER__MOM_&_DAUGHTER_SALWAR_FARSHI_COTTON_SET/IMG_5838.JPG",
       "/product_images/MEHER__MOM_&_DAUGHTER_SALWAR_FARSHI_COTTON_SET/IMG_5844.JPG",
@@ -118,7 +114,6 @@ export const products: Product[] = [
       "/product_images/MEHER__MOM_&_DAUGHTER_SALWAR_FARSHI_COTTON_SET/IMG_5875.JPG",
       "/product_images/MEHER__MOM_&_DAUGHTER_SALWAR_FARSHI_COTTON_SET/IMG_5876.JPG",
       "/product_images/MEHER__MOM_&_DAUGHTER_SALWAR_FARSHI_COTTON_SET/IMG_5885.JPG",
-      "/product_images/MEHER__MOM_&_DAUGHTER_SALWAR_FARSHI_COTTON_SET/IMG_5886.JPG",
     ],
     desc: "Meher by House of Srishti is a beautifully crafted cotton ethnic set featuring delicate floral prints and elegant lace detailing. Made from soft, breathable cotton, it offers all-day comfort with timeless style. Perfect for festive celebrations, family gatherings, and memorable mother-daughter twinning moments. Premium 100% Cotton · Soft & Breathable Fabric · Elegant Floral Print · Delicate Lace Detailing · Comfortable Regular Fit · Perfect for Festive & Casual Wear · Matching Mom & Daughter Set.",
   },
