@@ -18,6 +18,7 @@ export type Product = {
   pexelsId: number;
   images?: string[];
   desc?: string;
+  soldOut?: boolean;
 };
 
 export const products: Product[] = [
@@ -135,6 +136,97 @@ export const products: Product[] = [
       "/product_images/GUL_KIDS_HALTER_CO-ORD_SET/IMG_5738.JPG",
     ],
     desc: "Gul by House of Srishti is a playful and stylish kids' co-ord set crafted in premium 100% cotton. Featuring a trendy halter-neck top with a comfortable wide-leg bottom and vibrant floral prints, it's designed for carefree summer days, vacations, birthday parties, and everyday adventures. Premium 100% Cotton · Stylish Halter-Neck Top · Comfortable Wide-Leg Pants · Soft & Breathable Fabric · Vibrant Floral Print · Lightweight & Easy to Wear · Perfect for Summer, Vacations & Casual Outings.",
+  },
+  {
+    slug: "chaand-kurti",
+    name: "Chaand Kurti",
+    cats: ["For Her", "Daywear"],
+    tag: "For Her",
+    fabric: "100% Cotton",
+    sizes: "XS-XXL",
+    price: "Price on request",
+    pexelsId: 0,
+    images: [
+      "/product_images/CHAAND_KURTI/1.jpg",
+      "/product_images/CHAAND_KURTI/2.jpg",
+      "/product_images/CHAAND_KURTI/3.jpg",
+      "/product_images/CHAAND_KURTI/4.jpg",
+    ],
+    desc: "Chaand by House of Srishti is a breezy short kurti in premium 100% cotton, hand block-printed in deep indigo with delicate buti motifs. Its relaxed cami silhouette with adjustable shoulder ties makes it an easy throw-on for warm days, brunches and casual outings. Premium 100% Cotton · Hand Block Print · Adjustable Shoulder Ties · Soft & Breathable Fabric · Relaxed Short Kurti · Perfect for Daywear & Casual Outings.",
+  },
+  {
+    slug: "noor-kurti",
+    name: "Noor Kurti",
+    cats: ["For Her", "Daywear", "Festive"],
+    tag: "For Her",
+    fabric: "100% Cotton",
+    sizes: "XS-XXL",
+    price: "Price on request",
+    pexelsId: 0,
+    images: [
+      "/product_images/NOOR/1.jpg",
+      "/product_images/NOOR/2.jpg",
+      "/product_images/NOOR/3.jpg",
+      "/product_images/NOOR/4.jpg",
+      "/product_images/NOOR/5.jpg",
+    ],
+    desc: "Noor by House of Srishti is a striking straight kurti crafted in premium 100% cotton, featuring a bold lotus print in rich red and a graceful lace-up back detail. Elegant yet effortless, it pairs beautifully with trousers or palazzos for festive daywear and evening gatherings. Premium 100% Cotton · Bold Lotus Print · Lace-Up Back Detail · Soft & Breathable Fabric · Straight Kurti Silhouette · Perfect for Festive & Casual Wear.",
+  },
+  {
+    slug: "gulabi-noor-kurti",
+    name: "Gulabi Noor Kurti",
+    cats: ["For Her", "Daywear"],
+    tag: "For Her",
+    fabric: "100% Cotton",
+    sizes: "XS-XXL",
+    price: "Price on request",
+    pexelsId: 0,
+    images: [
+      "/product_images/GULABI_NOOR_KURTI/1.jpg",
+      "/product_images/GULABI_NOOR_KURTI/2.jpg",
+      "/product_images/GULABI_NOOR_KURTI/3.jpg",
+      "/product_images/GULABI_NOOR_KURTI/4.jpg",
+      "/product_images/GULABI_NOOR_KURTI/5.jpg",
+      "/product_images/GULABI_NOOR_KURTI/6.jpg",
+    ],
+    desc: "Gulabi Noor by House of Srishti is a soft rose-pink kurti in premium 100% cotton, printed with dainty buti motifs and finished with delicate lace trims at the neck and hem. Light, breathable and endlessly wearable, it is made for everyday elegance and easy festive daywear. Premium 100% Cotton · Delicate Buti Print · Lace Trim Detailing · Soft & Breathable Fabric · Comfortable Regular Fit · Perfect for Daywear & Casual Wear.",
+  },
+  {
+    slug: "geet-kurti",
+    name: "Geet Kurti",
+    cats: ["For Her", "Daywear"],
+    tag: "For Her",
+    fabric: "100% Cotton",
+    sizes: "XS-XXL",
+    price: "Price on request",
+    pexelsId: 0,
+    images: [
+      "/product_images/GEET_KURTI/1.jpg",
+      "/product_images/GEET_KURTI/2.jpg",
+      "/product_images/GEET_KURTI/3.jpg",
+      "/product_images/GEET_KURTI/4.jpg",
+    ],
+    desc: "Geet by House of Srishti is a warm mustard short kurti crafted in premium 100% cotton, featuring an intricate kalamkari-inspired print and gently gathered sleeves. Comfortable and versatile, it layers effortlessly over salwars, trousers or jeans for relaxed daywear. Premium 100% Cotton · Kalamkari-Inspired Print · Gathered Sleeves · Soft & Breathable Fabric · Relaxed Short Kurti · Perfect for Everyday & Casual Wear.",
+  },
+  {
+    slug: "laila-set",
+    name: "Laila Set",
+    cats: ["For Her", "Festive"],
+    tag: "For Her",
+    fabric: "100% Cotton",
+    sizes: "XS-XXL",
+    price: "Price on request",
+    pexelsId: 0,
+    soldOut: true,
+    images: [
+      "/product_images/LAILA_SET/1.jpg",
+      "/product_images/LAILA_SET/2.jpg",
+      "/product_images/LAILA_SET/3.jpg",
+      "/product_images/LAILA_SET/4.jpg",
+      "/product_images/LAILA_SET/5.jpg",
+      "/product_images/LAILA_SET/6.jpg",
+    ],
+    desc: "Laila by House of Srishti is an elegant co-ord set in premium 100% cotton, styled in a regal royal blue with delicate gota lace detailing along the kurta and sleeves. A graceful, put-together look for festive gatherings and special occasions. Premium 100% Cotton · Kurta & Pant Set · Gota Lace Detailing · Regal Royal Blue · Soft & Breathable Fabric · Perfect for Festive Wear & Special Occasions.",
   },
 ];
 

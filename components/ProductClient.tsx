@@ -78,8 +78,11 @@ export function ProductClient({
     [product.fabric],
   );
 
+  const soldOut = product.soldOut === true;
   const waBuy = waLink(
-    `Hello House of Srishti! I'd love to order the ${product.name} (my size ${size}, ${product.price}). Could you help me with the order details and any matching pieces?`,
+    soldOut
+      ? `Hello House of Srishti! The ${product.name} is showing as sold out. Could you let me know if it will be restocked or made to order (my size ${size})?`
+      : `Hello House of Srishti! I'd love to order the ${product.name} (my size ${size}, ${product.price}). Could you help me with the order details and any matching pieces?`,
   );
 
   return (
@@ -201,7 +204,12 @@ export function ProductClient({
           {product.name}
         </h1>
         <div className="mb-2 flex flex-wrap items-center gap-3.5">
-          <span className="font-display text-[30px] text-ink">{product.price}</span>
+          <span className="font-display text-[clamp(23px,6.5vw,30px)] text-ink">{product.price}</span>
+          {soldOut && (
+            <span className="rounded-full bg-ink/85 px-3 py-1.5 text-[11px] uppercase tracking-[0.16em] text-blush">
+              Sold Out
+            </span>
+          )}
           {product.cats.includes("For Little Ones") && product.cats.includes("For Her") && (
             <span className="text-[13px] text-muted">
               Mom & Daughter coordinating set
@@ -277,7 +285,7 @@ export function ProductClient({
             className="inline-flex items-center justify-center gap-3 rounded-full bg-[#ff3b5f] px-6 py-[18px] text-[13px] font-medium uppercase tracking-[0.16em] text-blush transition-[background-color,transform] duration-200 ease-[var(--ease-out-quart)] hover:bg-[#ff3b5f] active:scale-[0.98]"
           >
             <WhatsAppIcon className="h-[18px] w-[18px]" />
-            Enquire to order
+            {soldOut ? "Sold out · Ask about restock" : "Enquire to order"}
           </a>
           <a
             href={instagramLink}
@@ -352,15 +360,23 @@ export function ProductClient({
       {/* /info */}
 
       {/* sticky bottom CTA — mobile only */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-line bg-blush/95 px-[clamp(20px,5vw,68px)] py-3 backdrop-blur-md md:hidden">
+      <div className="fixed bottom-0 left-0 right-0 z-50 flex items-center gap-3 border-t border-line bg-blush/95 px-[clamp(20px,5vw,68px)] py-2.5 backdrop-blur-md md:hidden">
+        <div className="min-w-0 flex-1">
+          <p className="truncate font-display text-[18px] leading-tight text-ink">
+            {product.price}
+          </p>
+          {soldOut && (
+            <p className="text-[10px] uppercase tracking-[0.14em] text-muted">Sold out</p>
+          )}
+        </div>
         <a
           href={waBuy}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex w-full items-center justify-center gap-3 rounded-full bg-[#ff3b5f] py-[15px] text-[12px] font-medium uppercase tracking-[0.16em] text-blush shadow-lg transition-transform active:scale-[0.98]"
+          className="flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-[#ff3b5f] px-5 py-[13px] text-[12px] font-medium uppercase tracking-[0.14em] text-blush shadow-lg transition-transform active:scale-[0.98]"
         >
-          <WhatsAppIcon className="h-[18px] w-[18px]" />
-          Enquire to order · {product.price}
+          <WhatsAppIcon className="h-[17px] w-[17px]" />
+          {soldOut ? "Ask restock" : "Enquire"}
         </a>
       </div>
     </section>

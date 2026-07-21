@@ -72,6 +72,11 @@ export function CollectionsClient() {
                   <span className="absolute left-3.5 top-3.5 rounded-full bg-blush/95 px-2.5 py-1.5 text-[10px] uppercase tracking-[0.16em] text-rose">
                     {p.tag}
                   </span>
+                  {p.soldOut && (
+                    <span className="absolute right-3.5 top-3.5 rounded-full bg-ink/85 px-2.5 py-1.5 text-[10px] uppercase tracking-[0.16em] text-blush">
+                      Sold Out
+                    </span>
+                  )}
                 </div>
                 <div className="pt-4">
                   <h3 className="mb-1 font-display text-[22px] font-semibold leading-snug text-ink">
@@ -80,9 +85,11 @@ export function CollectionsClient() {
                   <p className="mb-2.5 text-[12.5px] tracking-[0.03em] text-muted">
                     {p.fabric} · {p.sizes}
                   </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[16px] text-ink">{p.price}</span>
-                    <span className="text-[11px] uppercase tracking-[0.14em] text-gold-ink">
+                  <div className="flex items-baseline justify-between gap-2">
+                    <span className="min-w-0 flex-1 text-[15px] leading-tight text-ink">
+                      {p.price}
+                    </span>
+                    <span className="shrink-0 text-[11px] uppercase tracking-[0.14em] text-gold-ink">
                       View &rarr;
                     </span>
                   </div>
