@@ -15,11 +15,54 @@ export type Product = {
   fabric: string;
   sizes: string;
   price: string;
+  priceOptions?: readonly ProductPriceOption[];
   pexelsId: number;
   images?: string[];
   desc?: string;
   soldOut?: boolean;
 };
+
+export type ProductPriceOption = {
+  readonly label: string;
+  readonly price: number;
+  readonly mrp?: number;
+};
+
+export function formatINR(amount: number): string {
+  return new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+    maximumFractionDigits: 0,
+  }).format(amount);
+}
+
+export function getProductStartingPrice(product: Product): number | undefined {
+  if (!product.priceOptions || product.priceOptions.length === 0) {
+    return undefined;
+  }
+
+  return product.priceOptions.reduce(
+    (lowest, option) => Math.min(lowest, option.price),
+    product.priceOptions[0]?.price ?? 0,
+  );
+}
+
+export function getProductStartingPriceLabel(product: Product): string {
+  const startingPrice = getProductStartingPrice(product);
+  return startingPrice === undefined
+    ? product.price
+    : `Starting from ${formatINR(startingPrice)}`;
+}
+
+export function getLowestPriceOption(
+  product: Product,
+): ProductPriceOption | undefined {
+  return product.priceOptions?.reduce<ProductPriceOption | undefined>(
+    (lowest, option) =>
+      lowest === undefined || option.price < lowest.price ? option : lowest,
+    undefined,
+  );
+}
 
 export const products: Product[] = [
   {
@@ -30,6 +73,11 @@ export const products: Product[] = [
     fabric: "100% Cotton",
     sizes: "S-XXL (Women), 2-12 yrs (Kids)",
     price: "Combo ₹2,399",
+    priceOptions: [
+      { label: "Women's set", price: 1499, mrp: 1999 },
+      { label: "Kids' set", price: 1099, mrp: 1399 },
+      { label: "Mom & daughter combo", price: 2399 },
+    ],
     pexelsId: 0,
     images: [
       "/product_images/NAZAKAT_COTTON_SALWAR_FARSHI_SET/IMG_5488.JPG",
@@ -54,6 +102,7 @@ export const products: Product[] = [
     fabric: "100% Cotton",
     sizes: "2-12 yrs",
     price: "₹1,399",
+    priceOptions: [{ label: "Kids' set", price: 1399 }],
     pexelsId: 0,
     images: [
       "/product_images/LAALIMA_KIDS_COTTON_KURTA_AND_SALWAR_FARSHI_SET/IMG_5530.JPG",
@@ -74,6 +123,7 @@ export const products: Product[] = [
     fabric: "100% Cotton",
     sizes: "2-12 yrs",
     price: "₹1,499",
+    priceOptions: [{ label: "Kids' set", price: 1499 }],
     pexelsId: 0,
     images: [
       "/product_images/NEELPARI_KIDS_SHARARA_SET/IMG_5649.JPG",
@@ -95,6 +145,10 @@ export const products: Product[] = [
     fabric: "100% Cotton",
     sizes: "S-XXL (Women), 2-12 yrs (Kids)",
     price: "Women ₹1,399 · Kids ₹999",
+    priceOptions: [
+      { label: "Women's set", price: 1399 },
+      { label: "Kids' set", price: 999 },
+    ],
     pexelsId: 0,
     images: [
       "/product_images/MEHER__MOM_&_DAUGHTER_SALWAR_FARSHI_COTTON_SET/IMG_5782.JPG",
@@ -126,6 +180,7 @@ export const products: Product[] = [
     fabric: "100% Cotton",
     sizes: "2-12 yrs",
     price: "₹999",
+    priceOptions: [{ label: "Kids' co-ord", price: 999 }],
     pexelsId: 0,
     images: [
       "/product_images/GUL_KIDS_HALTER_CO-ORD_SET/IMG_5703.JPG",
