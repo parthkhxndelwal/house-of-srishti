@@ -6,8 +6,9 @@ import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ProductClient } from "@/components/ProductClient";
+import { ProductPriceSummary } from "@/components/ProductPricing";
 import { Reveal } from "@/components/Reveal";
-import { pexels, products } from "@/lib/data";
+import { getProductStartingPriceLabel, pexels, products } from "@/lib/data";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -23,7 +24,7 @@ export async function generateMetadata({
   if (!product) return { title: "Not found" };
   return {
     title: product.name,
-    description: `${product.name}, ${product.fabric}, made to order from ${product.price}. Tailored to your measurements and ordered over WhatsApp.`,
+    description: `${product.name}, ${product.fabric}, made to order from ${getProductStartingPriceLabel(product)}. Tailored to your measurements and ordered over WhatsApp.`,
   };
 }
 
@@ -113,9 +114,7 @@ export default async function ProductPage({
                         {p.name}
                       </h3>
                       <div className="flex items-baseline justify-between gap-2">
-                        <span className="min-w-0 flex-1 text-[14px] leading-tight text-ink">
-                          {p.price}
-                        </span>
+                        <ProductPriceSummary label={getProductStartingPriceLabel(p)} />
                         <span className="shrink-0 text-[11px] uppercase tracking-[0.14em] text-gold-ink">
                           View &rarr;
                         </span>

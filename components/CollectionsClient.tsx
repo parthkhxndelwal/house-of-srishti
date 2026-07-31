@@ -4,7 +4,8 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
-import { pexels, products, filterCategories } from "@/lib/data";
+import { ProductPriceSummary } from "@/components/ProductPricing";
+import { filterCategories, getProductStartingPriceLabel, pexels, products } from "@/lib/data";
 
 export function CollectionsClient() {
   const [active, setActive] = useState<string>("All");
@@ -86,9 +87,7 @@ export function CollectionsClient() {
                     {p.fabric} · {p.sizes}
                   </p>
                   <div className="flex items-baseline justify-between gap-2">
-                    <span className="min-w-0 flex-1 text-[15px] leading-tight text-ink">
-                      {p.price}
-                    </span>
+                    <ProductPriceSummary label={getProductStartingPriceLabel(p)} />
                     <span className="shrink-0 text-[11px] uppercase tracking-[0.14em] text-gold-ink">
                       View &rarr;
                     </span>
