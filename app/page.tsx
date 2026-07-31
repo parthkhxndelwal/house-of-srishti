@@ -25,7 +25,7 @@ export default function HomePage() {
 
       <main>
         {/* ---------------------------------------------------------- hero */}
-        <section id="top" className="flex justify-center md:h-[90dvh] h-auto overflow-hidden bg-[#ff3b5f]">
+        <section id="top" className="flex justify-center md:h-[90dvh] h-auto overflow-hidden bg-[#fec1da]">
           <Link href="/collections" className="block h-full">
             {/* Desktop hero image */}
             <Image
