@@ -5,7 +5,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { WhatsAppIcon, InstagramIcon } from "@/components/icons";
-import { pexels, type Product } from "@/lib/data";
+import {
+  ProductPriceDisplay,
+  VariantSelector,
+} from "@/components/ProductPricing";
+import {
+  formatINR,
+  getLowestPriceOption,
+  getProductStartingPriceLabel,
+  pexels,
+  type Product,
+} from "@/lib/data";
 import { waLink, instagramLink } from "@/lib/site";
 
 const SIZES = ["XS", "S", "M", "L", "XL"];
@@ -79,10 +89,23 @@ export function ProductClient({
   );
 
   const soldOut = product.soldOut === true;
+  const priceLabel = getProductStartingPriceLabel(product);
+  const priceOptions = product.priceOptions ?? null;
+  const lowestOption = getLowestPriceOption(product);
+  const [variantLabel, setVariantLabel] = useState<string | null>(
+    lowestOption?.label ?? null,
+  );
+  const selectedOption = priceOptions?.find((o) => o.label === variantLabel);
+  const stickyPrice = selectedOption
+    ? formatINR(selectedOption.price)
+    : priceLabel;
+  const waPrice = selectedOption
+    ? `${selectedOption.label} · ${formatINR(selectedOption.price)}`
+    : priceLabel;
   const waBuy = waLink(
     soldOut
       ? `Hello House of Srishti! The ${product.name} is showing as sold out. Could you let me know if it will be restocked or made to order (my size ${size})?`
-      : `Hello House of Srishti! I'd love to order the ${product.name} (my size ${size}, ${product.price}). Could you help me with the order details and any matching pieces?`,
+      : `Hello House of Srishti! I'd love to order the ${product.name} (my size ${size}, ${waPrice}). Could you help me with the order details and any matching pieces?`,
   );
 
   return (
@@ -204,7 +227,7 @@ export function ProductClient({
           {product.name}
         </h1>
         <div className="mb-2 flex flex-wrap items-center gap-3.5">
-          <span className="font-display text-[clamp(23px,6.5vw,30px)] text-ink">{product.price}</span>
+          <ProductPriceDisplay option={selectedOption} fallback={product.price} />
           {soldOut && (
             <span className="rounded-full bg-ink/85 px-3 py-1.5 text-[11px] uppercase tracking-[0.16em] text-blush">
               Sold Out
@@ -216,6 +239,20 @@ export function ProductClient({
             </span>
           )}
         </div>
+        {priceOptions && priceOptions.length > 1 && (
+          <>
+            <div className="mb-2">
+              <span className="text-[12px] uppercase tracking-[0.18em] text-ink">
+                Choose a set
+              </span>
+            </div>
+            <VariantSelector
+              options={priceOptions}
+              selected={variantLabel}
+              onSelect={setVariantLabel}
+            />
+          </>
+        )}
         <div className="mb-6 text-[14px] tracking-[2px] text-gold-ink" aria-label="Rated 5 out of 5, 48 reviews">
           &#9733;&#9733;&#9733;&#9733;&#9733;{" "}
           <span className="text-[13px] tracking-[0.04em] text-muted">&nbsp;48 reviews</span>
@@ -363,7 +400,7 @@ export function ProductClient({
       <div className="fixed bottom-0 left-0 right-0 z-50 flex items-center gap-3 border-t border-line bg-blush/95 px-[clamp(20px,5vw,68px)] py-2.5 backdrop-blur-md md:hidden">
         <div className="min-w-0 flex-1">
           <p className="truncate font-display text-[18px] leading-tight text-ink">
-            {product.price}
+            {stickyPrice}
           </p>
           {soldOut && (
             <p className="text-[10px] uppercase tracking-[0.14em] text-muted">Sold out</p>
