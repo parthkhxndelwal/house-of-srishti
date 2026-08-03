@@ -67,7 +67,7 @@ export function getLowestPriceOption(
 export const products: Product[] = [
   {
     slug: "nazakat-cotton-salwar-farshi-set",
-    name: "Nazakat – Mom & Daughter Cotton Salwar Farshi Set",
+    name: "Nazakat – Mom & Daughter Salwar Farshi Set",
     cats: ["For Her", "For Little Ones", "Festive"],
     tag: "For Her",
     fabric: "100% Cotton",
@@ -96,7 +96,7 @@ export const products: Product[] = [
   },
   {
     slug: "laalima-kids-cotton-kurta-farshi-salwar-set",
-    name: "Laalima – Kids Cotton Kurta & Farshi Salwar Set",
+    name: "Laalima – Kids Kurta & Farshi Salwar Set",
     cats: ["For Little Ones", "Festive"],
     tag: "For Little Ones",
     fabric: "100% Cotton",
@@ -139,7 +139,7 @@ export const products: Product[] = [
   },
   {
     slug: "meher-mom-daughter-salwar-farshi-cotton-set",
-    name: "Meher – Mom & Daughter Salwar Farshi Cotton Set",
+    name: "Meher – Mom & Daughter Salwar Farshi Set",
     cats: ["For Her", "For Little Ones", "Festive"],
     tag: "For Her",
     fabric: "100% Cotton",
@@ -194,7 +194,7 @@ export const products: Product[] = [
   },
   {
     slug: "chaand-kurti",
-    name: "Chaand Kurti",
+    name: "Chaand",
     cats: ["For Her", "Daywear"],
     tag: "For Her",
     fabric: "100% Cotton",
@@ -211,7 +211,7 @@ export const products: Product[] = [
   },
   {
     slug: "noor-kurti",
-    name: "Noor Kurti",
+    name: "Noor",
     cats: ["For Her", "Daywear", "Festive"],
     tag: "For Her",
     fabric: "100% Cotton",
@@ -229,7 +229,7 @@ export const products: Product[] = [
   },
   {
     slug: "gulabi-noor-kurti",
-    name: "Gulabi Noor Kurti",
+    name: "Gulabi Noor",
     cats: ["For Her", "Daywear"],
     tag: "For Her",
     fabric: "100% Cotton",
@@ -248,7 +248,7 @@ export const products: Product[] = [
   },
   {
     slug: "geet-kurti",
-    name: "Geet Kurti",
+    name: "Geet",
     cats: ["For Her", "Daywear"],
     tag: "For Her",
     fabric: "100% Cotton",
