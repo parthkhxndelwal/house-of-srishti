@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
@@ -66,29 +66,28 @@ export function ProductClient({
     }
   };
 
-  const details = useMemo(
-    () => [
-      {
-        title: "Fabric & Composition",
-        body: `Crafted in ${product.fabric.toLowerCase()} with hand-applied detailing. Lightweight, breathable and gentle on delicate skin. Coordinating children's pieces are lined with pure cotton for comfort.`,
-      },
-      {
-        title: "Sizing & Fit",
-        body: "Women's XS to XL, or made to custom measurements. Children's coordinating sets are made to age, 0 to 12 years. Share height and age on WhatsApp and we'll tailor the fit precisely, at no extra charge.",
-      },
-      {
-        title: "Fabric Care",
-        body: "Dry clean recommended for embroidered pieces. Store folded in a cool, dry place wrapped in muslin, and keep away from direct sunlight to preserve colour.",
-      },
-      {
-        title: "Made to Order & Shipping",
-        body: "Each piece is crafted to order in 2 to 3 weeks. We ship across India; timelines and charges are confirmed over WhatsApp before your order is finalised.",
-      },
-    ],
-    [product.fabric],
-  );
+  const details = [
+    {
+      title: "Fabric",
+      body: "pure cotton.",
+    },
+    {
+      title: "Sizing",
+      body: "Please choose your exact size as our clothes are true to size.",
+    },
+    {
+      title: "Care",
+      body: "Wash separately for the first time in cold water as fabric may bleed dye for 1-2 washes especially if the fabric is blue or indigo.",
+    },
+  ];
 
   const soldOut = product.soldOut === true;
+  const modelSize = isKidsOnly ? "4-5 yrs" : "S";
+  const quickFacts = [
+    ["Fabric", "pure cotton"],
+    ["Model is wearing size", modelSize],
+    ["Care", "handwashed in the first go."],
+  ] as const;
   const priceLabel = getProductStartingPriceLabel(product);
   const priceOptions = product.priceOptions ?? null;
   const lowestOption = getLowestPriceOption(product);
@@ -258,20 +257,6 @@ export function ProductClient({
           <span className="text-[13px] tracking-[0.04em] text-muted">&nbsp;48 reviews</span>
         </div>
 
-        <p className="mb-7 text-[16px] leading-[1.85] text-ink-body">
-          {product.desc ? (
-            product.desc
-          ) : (
-            <>A blush rosewater piece hand-finished in soft {product.fabric.toLowerCase()},
-            with a delicate gota border and a matching pre-stitched option for ease.
-            Pair it with the coordinating{" "}
-            <em className="font-display not-italic text-rose">Little Blossom</em>{" "}
-            lehenga for your daughter, designed to complement, never to copy. Made
-            for festivals, first celebrations and photographs you&rsquo;ll keep
-            forever.</>
-          )}
-        </p>
-
         {/* size */}
         <div className="mb-2 flex items-center justify-between">
           <span className="text-[12px] uppercase tracking-[0.18em] text-ink">
@@ -335,6 +320,18 @@ export function ProductClient({
           </a>
         </div>
 
+        {/* quick facts */}
+        <ul className="mb-2 space-y-2.5 border-b border-line pb-6 text-[13.5px] text-ink-body">
+          {quickFacts.map(([label, value]) => (
+            <li key={label} className="flex items-baseline gap-3">
+              <span className="w-36 shrink-0 text-[10.5px] uppercase tracking-[0.16em] text-gold-ink">
+                {label}
+              </span>
+              <span>{value}</span>
+            </li>
+          ))}
+        </ul>
+
         {/* trust row */}
         <dl className="mb-2 grid grid-cols-3 border-y border-line py-6">
           {[
@@ -354,6 +351,9 @@ export function ProductClient({
 
         {/* detail accordions */}
         <div>
+          <p className="pt-4 text-[12px] uppercase tracking-[0.18em] text-ink">
+            Product Info
+          </p>
           {details.map((d, i) => {
             const isOpen = openDetail === i;
             return (
@@ -393,6 +393,20 @@ export function ProductClient({
             );
           })}
         </div>
+
+        <p className="pt-6 text-[16px] leading-[1.85] text-ink-body">
+          {product.desc ? (
+            product.desc
+          ) : (
+            <>A blush rosewater piece hand-finished in soft {product.fabric.toLowerCase()},
+            with a delicate gota border and a matching pre-stitched option for ease.
+            Pair it with the coordinating{" "}
+            <em className="font-display not-italic text-rose">Little Blossom</em>{" "}
+            lehenga for your daughter, designed to complement, never to copy. Made
+            for festivals, first celebrations and photographs you&rsquo;ll keep
+            forever.</>
+          )}
+        </p>
       </div>
       {/* /info */}
 
