@@ -20,7 +20,7 @@ export function Marquee() {
   );
 
   return (
-    <div className="overflow-hidden border-y border-rose bg-[#ff3b5f] py-4">
+    <div className="overflow-hidden border-y border-rose bg-[#e4607c] py-4">
       <div className="hs-marquee-track">
         {run}
         {run}

@@ -24,9 +24,18 @@ const allLinks = [
   ...navLinksRight,
 ];
 
-export function Header() {
+export function Header({ hero = false }: { hero?: boolean }) {
   const [open, setOpen] = useState(false);
+  const [atTop, setAtTop] = useState(true);
   const reduce = useReducedMotion();
+
+  useEffect(() => {
+    if (!hero) return;
+    const onScroll = () => setAtTop(window.scrollY < 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [hero]);
 
   // Lock scroll while the mobile menu is open.
   useEffect(() => {
@@ -38,8 +47,12 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-[60] border-b border-line/70 bg-blush/95 backdrop-blur-md">
-      <div className="mx-auto flex max-w-[1360px] items-center justify-between gap-5 px-[clamp(20px,5vw,68px)] py-1.5">
+      <header
+        className={`sticky top-0 z-[60] border-b border-line/70 backdrop-blur-md ${
+          hero && atTop ? "bg-[#fddee6]" : "bg-blush/95"
+        }`}
+      >
+        <div className="mx-auto flex max-w-[1360px] items-center justify-between gap-5 px-[clamp(20px,5vw,68px)] py-1.5">
         <nav className="hidden flex-1 items-center gap-8 text-[12px] uppercase tracking-[0.18em] lg:flex">
           {navLinks.map((l) => (
             <HeaderLink key={l.href} {...l} />

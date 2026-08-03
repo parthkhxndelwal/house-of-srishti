@@ -21,7 +21,7 @@ export default function HomePage() {
         Complimentary styling on WhatsApp &nbsp;·&nbsp; Handcrafted in India
         &nbsp;·&nbsp; Pan India shipping
       </AnnouncementBar>
-      <Header />
+      <Header hero />
 
       <main>
         {/* ---------------------------------------------------------- hero */}
@@ -53,8 +53,8 @@ export default function HomePage() {
         <Marquee />
 
         {/* ----------------------------------------- two wardrobes, one story */}
-        <section className={`${wrap} ${pad} pb-[clamp(40px,5vw,64px)] pt-[clamp(68px,8vw,118px)]`}>
-          <Reveal className="mx-auto mb-[clamp(40px,5vw,64px)] max-w-[620px] text-center">
+        <section className={`${wrap} ${pad} pb-[clamp(40px,5vw,64px)] pt-[clamp(16px,2vw,28px)] md:pt-[clamp(68px,8vw,118px)]`}>
+          <Reveal className="mx-auto mb-[clamp(40px,5vw,64px)] hidden max-w-[620px] text-center md:block">
             <div className="mb-4 flex items-center justify-center gap-3">
               <LotusMark className="h-4 w-6 text-gold" />
             </div>
@@ -62,6 +62,21 @@ export default function HomePage() {
               A line for her. A line for them.
             </h2>
           </Reveal>
+
+          <Link
+            href="/collections"
+            className="mb-[clamp(16px,2vw,28px)] block md:hidden"
+            aria-label="Shop the collection"
+          >
+            <Image
+              src="/shop_the_collection_here.png"
+              alt="Shop the collection"
+              width={3130}
+              height={960}
+              sizes="100vw"
+              className="h-auto w-full"
+            />
+          </Link>
 
           <div className="grid gap-[clamp(16px,2vw,28px)] md:grid-cols-2">
             <WardrobeCard
