@@ -31,3 +31,7 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# agent tooling
+.omo/
+.playwright-mcp/
