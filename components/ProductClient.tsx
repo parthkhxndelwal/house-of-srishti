@@ -268,7 +268,9 @@ export function ProductClient({
           {product.name}
         </h1>
         <div className="mb-2 flex flex-wrap items-center gap-3.5">
-          <ProductPriceDisplay option={selectedOption} fallback={product.price} />
+          {!soldOut && (
+            <ProductPriceDisplay option={selectedOption} fallback={product.price} />
+          )}
           {soldOut && (
             <span className="rounded-full bg-ink/85 px-3 py-1.5 text-[11px] uppercase tracking-[0.16em] text-blush">
               Sold Out
@@ -455,12 +457,13 @@ export function ProductClient({
       {/* sticky bottom CTA — mobile only */}
       <div className="fixed bottom-0 left-0 right-0 z-50 flex items-center gap-3 border-t border-line bg-blush/95 px-[clamp(20px,5vw,68px)] py-2.5 backdrop-blur-md md:hidden">
         <div className="min-w-0 flex-1">
-          <p className="truncate font-display text-[18px] leading-tight text-ink">
-            {stickyPrice}
+          <p
+            className={`truncate font-display text-[18px] leading-tight ${
+              soldOut ? "text-muted" : "text-ink"
+            }`}
+          >
+            {soldOut ? "Sold Out" : stickyPrice}
           </p>
-          {soldOut && (
-            <p className="text-[10px] uppercase tracking-[0.14em] text-muted">Sold out</p>
-          )}
         </div>
         <a
           href={waBuy}

@@ -114,7 +114,13 @@ export default async function ProductPage({
                         {p.name}
                       </h3>
                       <div className="flex items-baseline justify-between gap-2">
-                        <ProductPriceSummary label={getProductStartingPriceLabel(p)} />
+                        {p.soldOut ? (
+                          <span className="min-w-0 flex-1 text-[13px] uppercase tracking-[0.16em] text-muted">
+                            Sold Out
+                          </span>
+                        ) : (
+                          <ProductPriceSummary label={getProductStartingPriceLabel(p)} />
+                        )}
                         <span className="shrink-0 text-[11px] uppercase tracking-[0.14em] text-gold-ink">
                           View &rarr;
                         </span>
