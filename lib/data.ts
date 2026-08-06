@@ -274,7 +274,8 @@ export const products: Product[] = [
     tag: "For Her",
     fabric: "100% Cotton",
     sizes: "XS-XXL",
-    price: "Price on request",
+    price: "₹1,299",
+    priceOptions: [{ label: "Set", price: 1299, mrp: 1999 }],
     pexelsId: 0,
     images: [
       "/product_images/GULNOOR_SET/IMG_7678.JPG",
