@@ -21,6 +21,8 @@ import { waLink, instagramLink } from "@/lib/site";
 const SIZES = ["XS", "S", "M", "L", "XL"];
 const KIDS_SIZES = ["2-3 yrs", "4-5 yrs", "6-7 yrs", "8-9 yrs", "10-12 yrs"];
 
+const isVideoSrc = (src: string) => /\.(mp4|webm|mov)$/i.test(src);
+
 export function ProductClient({
   product,
   galleryIds,
@@ -128,14 +130,25 @@ export function ProductClient({
               transition={{ duration: 0.35, ease: "easeOut" }}
               className="absolute inset-0"
             >
-              <Image
-                src={activeImg}
-                alt={product.name}
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-              />
+              {isVideoSrc(activeImg) ? (
+                <video
+                  src={activeImg}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              ) : (
+                <Image
+                  src={activeImg}
+                  alt={product.name}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              )}
             </motion.div>
           </AnimatePresence>
           <span className="absolute bottom-3 right-3 z-10 rounded-full bg-ink/55 px-2.5 py-1 text-[11px] tracking-[0.06em] text-blush/90">
@@ -168,29 +181,58 @@ export function ProductClient({
         {/* thumbnail strip */}
         <div className="relative hidden md:block">
           <div ref={thumbRef} className="flex gap-3 overflow-hidden">
-            {galleryItems!.map((id, i) => (
-              <button
-                key={id + "-" + i}
-                onClick={() => setImgIdx(i)}
-                aria-label={`View image ${i + 1}`}
-                aria-pressed={imgIdx === i}
-                className={`h-24 w-[76px] shrink-0 overflow-hidden rounded-[4px] border transition-[border-color,transform] duration-200 active:scale-[0.96] ${
-                  imgIdx === i ? "border-rose" : "border-line hover:border-rose/50"
-                }`}
-              >
-                <span className="relative block h-full w-full">
-                  <Image
-                    src={hasLocalImages ? (galleryPaths as string[])[i] : pexels(id as number, 220)}
-                    alt=""
-                    fill
-                    sizes="76px"
-                    className={`object-cover transition-opacity duration-200 ${
-                      imgIdx === i ? "opacity-100" : "opacity-70 hover:opacity-100"
-                    }`}
-                  />
-                </span>
-              </button>
-            ))}
+            {galleryItems!.map((id, i) => {
+              const thumbSrc = hasLocalImages
+                ? (galleryPaths as string[])[i]
+                : pexels(id as number, 220);
+              return (
+                <button
+                  key={id + "-" + i}
+                  onClick={() => setImgIdx(i)}
+                  aria-label={`View media ${i + 1}`}
+                  aria-pressed={imgIdx === i}
+                  className={`h-24 w-[76px] shrink-0 overflow-hidden rounded-[4px] border transition-[border-color,transform] duration-200 active:scale-[0.96] ${
+                    imgIdx === i ? "border-rose" : "border-line hover:border-rose/50"
+                  }`}
+                >
+                  <span className="relative block h-full w-full">
+                    {isVideoSrc(thumbSrc) ? (
+                      <>
+                        <video
+                          src={thumbSrc}
+                          preload="metadata"
+                          muted
+                          playsInline
+                          className={`h-full w-full object-cover transition-opacity duration-200 ${
+                            imgIdx === i ? "opacity-100" : "opacity-70 hover:opacity-100"
+                          }`}
+                        />
+                        <span
+                          aria-hidden="true"
+                          className="pointer-events-none absolute inset-0 flex items-center justify-center"
+                        >
+                          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-ink/50">
+                            <svg className="h-2 w-2 text-blush" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
+                          </span>
+                        </span>
+                      </>
+                    ) : (
+                      <Image
+                        src={thumbSrc}
+                        alt=""
+                        fill
+                        sizes="76px"
+                        className={`object-cover transition-opacity duration-200 ${
+                          imgIdx === i ? "opacity-100" : "opacity-70 hover:opacity-100"
+                        }`}
+                      />
+                    )}
+                  </span>
+                </button>
+              );
+            })}
           </div>
           {galleryItems!.length > 4 && (
             <>
